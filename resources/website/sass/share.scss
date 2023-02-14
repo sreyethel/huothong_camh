@@ -1,0 +1,26 @@
+.share-flex-content {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+
+    &-social {
+        display       : grid;
+        grid-auto-flow: column;
+        grid-gap      : 10px;
+
+        &-item {
+            background-color: $white;
+            border-radius   : 50%;
+            overflow        : hidden;
+            padding         : 1rem;
+            box-shadow      : rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+            transition      : all 0.3s ease-in-out;
+
+            &:hover {
+                background-color: $primary;
+                color           : $white;
+            }
+        }
+    }
+}

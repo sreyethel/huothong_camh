@@ -1,0 +1,54 @@
+.breadcrumb-content {
+    .breadcrumb-wrapper {
+        display    : flex;
+        align-items: center;
+        flex-wrap  : wrap;
+
+        .breadcrumb-item {
+            @include fontBold(0);
+            display    : flex;
+            align-items: center;
+            font-size  : 18px;
+            padding    : 0;
+
+            &::before {
+                content  : '\2666';
+                padding  : 0 10px;
+                font-size: 1.2rem;
+                color    : $primary;
+            }
+
+            &:first-child,
+            &.none-icon {
+                &::before {
+                    content: "";
+                    padding: 0;
+                }
+            }
+
+            &.active {
+                a {
+                    cursor     : unset;
+                    // color      : $primary !important;
+                    // font-weight: bold;
+                }
+            }
+
+            &:hover:not(.active) {
+                a {
+                    &.url {
+                        text-decoration: underline !important;
+                    }
+                }
+            }
+
+            a {
+                color  : unset;
+                width  : unset;
+                height : unset;
+                margin : 0;
+                padding: 0;
+            }
+        }
+    }
+}

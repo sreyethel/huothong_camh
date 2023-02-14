@@ -1,0 +1,229 @@
+@mixin btn($b:false) {
+    border    : 1px solid #ccc;
+    background: #fff;
+
+    @if($b=="create") {
+        border    : unset;
+        background: map-get($btn, 'create');
+    }
+
+    @else if($b=="save") {
+        border    : unset;
+        background: map-get($btn, 'save');
+    }
+
+    @else if($b=="delete") {
+        border    : unset;
+        background: map-get($btn, 'delete');
+    }
+}
+
+@mixin tableRow() {
+    $class: 100;
+
+    @for $i from 5 through $class {
+        .table-row-#{$i} {
+            width: #{$i}+'%';
+        }
+    }
+}
+
+@mixin subString($line) {
+
+    &,
+    &>* {
+        overflow     : hidden;
+        text-overflow: ellipsis;
+        white-space  : nowrap;
+        line-height  : normal;
+
+        @supports (-webkit-line-clamp: $line) {
+            overflow          : hidden;
+            text-overflow     : ellipsis;
+            white-space       : initial;
+            display           : -webkit-box;
+            -webkit-line-clamp: $line;
+            -webkit-box-orient: vertical;
+        }
+    }
+}
+
+@mixin Grid($item:6, $margin:15px, $border:0px, $full: false) {
+    $m        : $margin * 2;
+    width     : 100%;
+    overflow-x: hidden;
+
+    >* {
+        @if $full !=false {
+            width      : calc(100% + #{$m});
+            margin-left: - #{$margin};
+        }
+
+        @else {
+            width      : 100%;
+            margin-left: 0;
+        }
+
+        display       : flex;
+        flex-direction: row;
+        flex-wrap     : wrap;
+
+        >* {
+            width     : calc((100% / #{$item}) - #{$m} - (#{$border} * 2));
+            margin    : $margin;
+            box-sizing: border-box;
+        }
+    }
+}
+
+@mixin backdrop($color:#ffffff, $backdrop:45px) {
+    backdrop-filter        : blur($backdrop);
+    -webkit-backdrop-filter: blur($backdrop);
+    background             : rgba($color, 70%);
+}
+
+@mixin fontBold($px:0) {
+    font-weight        : unset;
+    -webkit-text-stroke: $px;
+}
+
+@mixin fadeAnimate {
+    position: relative;
+    overflow: hidden;
+
+    img {
+        width     : 100%;
+        height    : 100%;
+        transition: transform .5s, filter 1.5s ease-in-out;
+    }
+
+    &:hover {
+        img {
+            transform: scale(1.1);
+        }
+    }
+}
+
+@mixin badge-color($color) {
+    background: $color;
+    box-shadow: 0 0 0 4px $color;
+}
+
+@mixin text-decoration($height:1px, $color:#000) {
+    a {
+        display : inline-block;
+        position: relative;
+
+        &:after {
+            content         : "";
+            display         : block;
+            position        : absolute;
+            width           : 0;
+            bottom          : 0;
+            height          : $height;
+            margin          : -3px 0;
+            left            : 0;
+            background-color: $color;
+            transition      : all 0.3s ease-in 0s;
+            background-image: linear-gradient(to right, $color, transparent);
+        }
+
+        &:hover:after {
+            width: 100%;
+        }
+
+        &.active:after {
+            width: 100%;
+        }
+    }
+}
+
+@mixin buttonWithoutAnimation($bgL:#c92449, $bgR:#ff4b2b, $shadow:rgb(221 26 68 / 36%), $color:#fff) {
+    border          : none;
+    border-radius   : 25px;
+    font-size       : 16px;
+    font-weight     : 400;
+    transition      : 0.5s;
+    background-size : 200% auto;
+    background-image: linear-gradient(to right, $bgL, $bgR);
+    box-shadow      : 0px 17px 43px 1px $shadow;
+    color           : $color;
+
+    &:hover {
+        background-position: right center;
+        color              : $color;
+    }
+}
+
+@mixin glass {
+    box-shadow     : 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border         : 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@mixin title-bdr-running {
+    position: relative;
+    width   : fit-content;
+
+    .title-bdr {
+        position      : absolute;
+        bottom        : auto;
+        left          : 50%;
+        transform     : translate(-50%, 0);
+        width         : 150px;
+        padding-bottom: 40px;
+
+        .left-bdr,
+        .right-bdr {
+            height          : 6px;
+            width           : 60px;
+            background-image: linear-gradient(to right, #ff416c, #ff4b2b);
+            border-radius   : 10px;
+            position        : absolute;
+        }
+
+        .left-bdr {
+            left     : 0px;
+            animation: left 2s infinite;
+        }
+
+        .right-bdr {
+            right    : 0px;
+            animation: right 2s infinite;
+        }
+
+        @keyframes left {
+
+            0%,
+            50%,
+            100% {
+                width: 60px;
+            }
+
+            25% {
+                width: 120px;
+            }
+
+            75% {
+                width: 10px;
+            }
+        }
+
+        @keyframes right {
+
+            0%,
+            50%,
+            100% {
+                width: 60px;
+            }
+
+            25% {
+                width: 10px;
+            }
+
+            75% {
+                width: 120px;
+            }
+        }
+    }
+}

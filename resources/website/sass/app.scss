@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+
+@import './font.scss';
+@import './variable.scss';
+@import './function.scss';
+@import './navbar.scss';
+@import './footer.scss';
+@import './content.scss';
+@import './swiper.scss';
+@import './search.scss';
+@import './scroll.scss';
+@import './empty.scss';
+@import './breadcrumb.scss';
+@import './paginate.scss';
+@import './share.scss';
+@import './component.scss';
+@import './responsive.scss';
+
+body {
+    margin          : 0;
+    padding         : 0;
+    background-color: #f5f5f5;
+    color           : #5f5c58;
+}
+
+::-webkit-scrollbar {
+    width : 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background   : $primary;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background   : #fff;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+}
