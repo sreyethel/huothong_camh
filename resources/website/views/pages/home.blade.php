@@ -3,9 +3,12 @@
     'title' => 'Home',
 ])
 @section('content')
-
-    <div class="container min-h-screen">
-        <h1>Home</h1>
+    
+    <div class="container">
+        <div class="home-section"></div>
+        <div class="homepage">
+            <img src="{{ asset('images/layout-9.png') }}" alt="" class="image-box">
+        </div>
     </div>
 
     <!-- space -->
