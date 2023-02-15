@@ -1,7 +1,7 @@
 <?php
 return [
-    "title" => "Huot Hong Camh",
-    "og_description" => "Huot Hong Camh is a website that provides information about music in the 60s and 70s.",
+    "title" => "Hout Hong Camh",
+    "og_description" => "Hout Hong Camh is a website that provides information about music in the 60s and 70s.",
 
     "navbar" => [
         "home"                  => "Home",
@@ -16,6 +16,6 @@ return [
 
     "footer" => [
         "copyrighted"           => "Copyrighted © ",
-        "all_rights_reserved"   => "Huot Hong Camh, All Rights Reserved.",
+        "all_rights_reserved"   => "Hout Hong Camh, All Rights Reserved.",
     ]
 ];

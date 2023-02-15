@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'title' => 'MUSIC-60-70s',
-    'name' => 'MUSIC-60-70s MANAGEMENT',
+    'title' => 'Hout Hong Camh',
+    'name' => 'Hout Hong Camh MANAGEMENT',
 ];
