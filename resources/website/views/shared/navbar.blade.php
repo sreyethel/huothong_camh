@@ -8,16 +8,16 @@
             </div>
             <div class="menu grid gap-7 grid-flow-col">
                 <div class="item">
-                    <a href="#">@lang('website.navbar.home')</a>
+                    <a href="{{ route('website-home') }}">@lang('website.navbar.home')</a>
                 </div>
                 <div class="item">
-                    <a href="#">@lang('website.navbar.company_profile')</a>
+                    <a href="{{ route('website-page-about-us') }}">@lang('website.navbar.about_us')</a>
                 </div>
                 <div class="item">
                     <a href="#">@lang('website.navbar.product')</a>
                 </div>
                 <div class="item">
-                    <a href="#">@lang('website.navbar.contact_us')</a>
+                    <a href="{{ route('website-page-contact-us') }}">@lang('website.navbar.contact_us')</a>
                 </div>
             </div>
             <div class="icons">

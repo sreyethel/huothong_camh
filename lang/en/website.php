@@ -1,17 +1,20 @@
 <?php
 return [
     "title" => "Hout Hong Camh",
-    "og_description" => "Hout Hong Camh is a website that provides information about music in the 60s and 70s.",
+    "og_description" => "Hout Hong Camh is the online platform for everyone catching up with company service / product like home sell, land....",
 
     "navbar" => [
         "home"                  => "Home",
-        "company_profile"       => "Company Profile",
+        "about_us"              => "About Us",
         "product"               => "Product",
         "contact_us"            => "Contact Us",
     ],
 
     "pages" => [
-        "view_all"          => "View All",
+        "view_all"              => "View All",
+        "address"               => "Address",
+        "Phone"                 => "Phone",
+        "Email"                 => "E-mail"
     ],
 
     "footer" => [

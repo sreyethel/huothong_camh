@@ -1,0 +1,162 @@
+// about section
+.about-us-section {
+    &-wrapper {
+        .row {
+            display        : flex;
+            align-items    : center;
+            justify-content: space-between;
+        }
+
+        .column {
+            .about-us-section-wrapper-content {
+                width: 100% !important;
+            }
+        }
+
+        &-image {
+            width: 50%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &-content {
+            width: 40%;
+
+            .label {
+                position    : relative;
+                padding-left: 1.5rem;
+
+                &::before {
+                    content   : "";
+                    position  : absolute;
+                    display   : inline-block;
+                    top       : 50%;
+                    left      : 0;
+                    transform : translateY(-50%);
+                    width     : 1.2rem;
+                    height    : 0.2rem;
+                    background: $primary;
+                }
+            }
+
+            h1 {
+                font-size : 2.5rem;
+                margin-top: 0;
+                text-align: center;
+                @include title-bdr-running;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            &-btn {
+                display        : grid;
+                place-items    : flex-start;
+                justify-content: flex-start;
+                grid-auto-flow : column;
+                grid-gap       : 1rem;
+
+
+                button {
+                    @include buttonWithoutAnimation(#ff416c, #ff4b2b, rgb(221 26 68 / 36%), $white);
+                    padding   : 10px 20px;
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}
+
+// contact section
+.contact-us-section {
+    &-wrapper {
+        .row {
+            display        : flex;
+            align-items    : center;
+            justify-content: space-between;
+        }
+
+        .column {
+            .contact-us-section-wrapper-content {
+                width: 100% !important;
+            }
+        }
+
+        &-image {
+            width: 50%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &-content {
+            width: 40%;
+
+            h1 {
+                font-size : 2.5rem;
+                margin-top: 0;
+                text-align: center;
+                @include title-bdr-running;
+            }
+
+            button {
+                @include buttonWithoutAnimation(#ff416c, #ff4b2b, rgb(221 26 68 / 36%), $white);
+                padding   : 10px 40px;
+                margin-top: 30px;
+            }
+
+            .flex-content {
+                display              : grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap                  : 3rem;
+                padding              : 30px 0;
+
+                &-item {
+                    display    : flex;
+                    align-items: center;
+
+                    &-icon {
+                        display         : flex;
+                        align-items     : center;
+                        justify-content : center;
+                        border-radius   : 10px;
+                        background-color: #e5e5e5;
+                        padding         : 1rem;
+                        margin-right    : 1rem;
+
+                        svg {
+                            width : 2rem;
+                            height: 2rem;
+                        }
+                    }
+
+                    &-text {
+                        h5 {
+                            font-size: 1.2rem;
+                            margin   : 0 0 0.5rem 0;
+                        }
+
+                        p {
+                            font-size: 0.8rem;
+                            margin   : 0;
+                        }
+                    }
+                }
+            }
+
+            .map {
+                width  : 100%;
+                padding: 30px 0;
+
+                iframe {
+                    width : 100%;
+                    height: 500px;
+                }
+            }
+        }
+    }
+}
