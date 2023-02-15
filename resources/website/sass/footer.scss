@@ -1,11 +1,13 @@
-.sub-footer{
+.footer {
+    color: #b3b8bc;
+
+    .logo {
+        img {
+            height: 70px;
+        }
+    }
+}
+
+.footer-bottom {
     background-color: #1e1e1e;
-}
-.h-footer{
-    padding: 90px 0px;
-}
-.image-box{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }

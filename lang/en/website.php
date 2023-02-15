@@ -6,7 +6,7 @@ return [
     "navbar" => [
         "home"                  => "Home",
         "company_profile"       => "Company Profile",
-        "construction"          => "Construction",
+        "product"               => "Product",
         "contact_us"            => "Contact Us",
     ],
 
@@ -15,6 +15,7 @@ return [
     ],
 
     "footer" => [
+        "quick_links"           => "Quick Links",
         "copyrighted"           => "Copyrighted © ",
         "all_rights_reserved"   => "Hout Hong Camh, All Rights Reserved.",
     ]

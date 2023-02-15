@@ -1,119 +1,59 @@
 <div class="footer bg-black">
     <div class="container">
-        <div class="flex justify-items-start h-footer space-x-8">
+        <div class="grid grid-flow-col items-start gap-10 py-10">
             <div class="logo">
                 <a href="#">
-                    <img src="{{ asset('images/logo/123.png') }}" alt="">
+                    <img src="{{ asset('images/logo/logo.png') }}" alt="">
                 </a>
-                <ul class="flex flex-col">
-                    <li class="text-white">This home provides entertaining spaces with<br> a kitchen opening</li>
-                    <li class="text-white">A-32, Albany, Newyork.</li>
-                    <li class="text-white">(+066) 518 - 457 - 5181</li>
-                    <li class="text-white">Contact@gmail.com</li>
-                </ul>
+                <p class="pt-5">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl sit amet
+                    tincidunt
+                    luctus, enim ipsum
+                    tincidunt nisl, eu aliquet nisl lorem quis dolor. Sed euismod, nisl sit amet tincidunt
+                    luctus, enim ipsum
+                    tincidunt nisl, eu aliquet nisl lorem quis dolor.
+                </p>
             </div>
             <div>
-                <h1 class="text-xl font-semibold text-white mb-8 ">Our Location</h1>
-                <div class="h-40 bg-red-400 w-80">
-                    123
-                </div>
-            </div>
-            <div>
-                <h1 class="text-xl font-semibold text-white mb-[25px] ">About</h1>
-                <div class="flex flex-col">
-                    <span class="text-white">
-                        <a href="#">About us</a> 
-                    </span>
-                    <span class="pt-2 text-white">
-                        <a href="#"> Listing</a>
-                    </span>
-                    <span class="pt-2 text-white">
-                        <a href="#">Prperty</a> 
-                    </span>
-                    <span class="pt-2 text-white">
-                        <a href="#">Page</a> 
-                    </span>
-                    <span class="pt-2 text-white">
-                        <a href="#">Modules</a> 
-                    </span>
-                    <span class="pt-2 text-white">
-                        <a href="#">Blog</a> 
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="flex justify-start space-x-72">
-            <div class="mb-20">
-                <h1 class="text-xl font-semibold text-white mb-[25px] ">Tags</h1>
-                <div class="flex flex-col">
-                    <span class="text-white">
-                        <a href="#">Blog</a> 
-                    </span>
-                    <span class="pt-2 text-white">
-                        <a href="#">Blog List</a>
-                    </span>
-                    <span class="pt-2 text-white">
-                        <a href="#">Creative Blog</a> 
-                    </span>
-                    <span class="pt-2 text-white">
-                        <a href="#">Mix Blog</a> 
-                    </span>
-                    <span class="pt-2 text-white">
-                        <a href="#">Detail</a> 
-                    </span>
-                    <span class="pt-2 text-white">
-                        <a href="#">Video</a> 
-                    </span>
+                <h1 class="text-xl font-semibold text-white mb-8 ">@lang('website.navbar.contact_us')</h1>
+
+                <div class="grid gap-5">
+                    <div>This home provides entertaining spaces with<br> a kitchen opening</div>
+                    <div>A-32, Albany, Newyork.</div>
+                    <div>(+066) 518 - 457 - 5181</div>
+                    <div>Contact@gmail.com</div>
                 </div>
             </div>
             <div>
-                <h1 class="text-xl font-semibold text-white mb-[25px] ">Our Latest Blog</h1>
-                <div class="flex space-x-3">
-                    <div class="w-[20%] ">
-                        <div class="h-20">
-                            <img src="https://dynamicmedia.irvinecompany.com/is/image/content/dam/apartments/3-readytopublish/communities/orangecounty/irvine/promenade/photography/1940-09_Family_Rm_Model-5_Promenade_IrvineApts_EricFiggePhotos.tif?&crop=774,440,4541,3032&wid=720&iccEmbed=1&icc=AdobeRGB&resMode=sharp2&fmt=pjpeg&pscan=auto" alt="" class="image-box">
-                        </div>
-                    </div>
-                    <div class="w-[80%]">
-                        <h1 class="text-white text-lg">Top News</h1>
-                        <p class="text-white">Apartment An individual unit in a multi-unit building.</p>
-                    </div>
-                </div>
-                <div class="flex space-x-3 mt-4">
-                    <div class="w-[20%] ">
-                        <div class="h-20">
-                            <img src="https://dynamicmedia.irvinecompany.com/is/image/content/dam/apartments/3-readytopublish/communities/orangecounty/irvine/promenade/photography/1940-09_Family_Rm_Model-5_Promenade_IrvineApts_EricFiggePhotos.tif?&crop=774,440,4541,3032&wid=720&iccEmbed=1&icc=AdobeRGB&resMode=sharp2&fmt=pjpeg&pscan=auto" alt="" class="image-box">
-                        </div>
-                    </div>
-                    <div class="w-[80%]">
-                        <h1 class="text-white text-lg">Latest News</h1>
-                        <p class="text-white">Apartment An individual unit in a multi-unit building.</p>
-                    </div>
+                <h1 class="text-xl font-semibold text-white mb-[25px] ">@lang('website.footer.quick_links')</h1>
+                <div class="grid gap-5">
+                    <a href="#" class="flex items-center">
+                        <i data-feather="chevron-right" class="h-5 w-5"></i>
+                        @lang('website.navbar.company_profile') 
+                    </a>
+                    <a href="#" class="flex items-center">
+                        <i data-feather="chevron-right" class="h-5 w-5"></i>
+                        @lang('website.navbar.product') 
+                    </a>
+                    <a href="#" class="flex items-center">
+                        <i data-feather="chevron-right" class="h-5 w-5"></i>
+                        @lang('website.navbar.contact_us') 
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="sub-footer h-12">
-        <div class="container">
-            <div class="flex justify-between  items-center ">
-                <ul class="flex">
-                    <li class="">
-                        <a href="#"><i class="fa-brands fa-facebook-f text-gray-100"></i></a>
-                    </li>
-                    <li class="px-5">
-                        <a href="#"><i class="fa-brands fa-instagram text-gray-100"></i></a>
-                    </li>
-                    <li class="px-5">
-                        <a href="#"><i class="fa-brands fa-twitter text-gray-100"></i></a>
-                    </li>
-                    <li class="px-5">
-                        <a href="#"><i class="fa-brands fa-google text-gray-100"></i></a>
-                    </li>
-                </ul>
-                <div>
-                    <h1 class="text-white text-sm">Copyright 2023 @All Right Reserved</h1>
-                </div>
+</div>
+<div class="footer-bottom">
+    <div class="container">
+        <div class="h-12 flex justify-between items-center">
+            <div class="grid gap-4 grid-cols-4">
+                <i class="h-5 w-5" data-feather="facebook"></i>
+                <i class="h-5 w-5" data-feather="twitter"></i>
+                <i class="h-5 w-5" data-feather="instagram"></i>
+                <i class="h-5 w-5" data-feather="linkedin"></i>
             </div>
+            <h1 class="text-white text-sm">Copyright 2023 @All Right Reserved</h1>
         </div>
     </div>
 </div>

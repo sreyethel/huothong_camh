@@ -1,29 +1,13 @@
-li {
-	display: block;
-	float: left;
-	padding: 10px;
-	position: relative;
-    transition: 0.5s;
-}
-ul li ul.sub-menu-1 {
-	background: rgb(248, 247, 244);
-    // box-shadow: 3px 3px 5px 0px rgb(240, 237, 240);
-	visibility: hidden;
-    opacity: 0;
-    width: 235px;
-	position: absolute;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-    display: none;
-    padding: 10px;
-}
-ul li:hover > ul,
-ul li ul:hover {
-    visibility: visible;
-    opacity: 1;
-    display: block;
-}
-ul li ul li {
-	clear: both;
-    width: 100%;
+.navbar {
+    .logo {
+        img {
+            height: 70px;
+        }
+    }
+
+    .menu {
+        .item {
+            font-size: 1rem;
+        }
+    }
 }
