@@ -5,6 +5,7 @@ module.exports = {
         extend: {
             colors: {
                 primary: "#00a6f2",
+                white: "#ffffff",
             },
             backgroundColor: {
                 primary: "#00a6f2",
@@ -21,6 +22,9 @@ module.exports = {
                 normal: 400,
                 medium: 500,
                 bold: 700,
+            },
+            boxShadow: {
+                border: "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
             },
         },
     },

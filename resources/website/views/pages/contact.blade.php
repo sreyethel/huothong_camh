@@ -1,6 +1,23 @@
 @extends('website::shared.layout')
 @include('website::components.meta')
 @section('content')
+    @include('website::components.banner', [
+        'content' => 'contact us',
+        'title' => 'Our Contact Details',
+        'image' => asset('images/banner.jpg'),
+        'breadcrumbs' => [
+            [
+                'name' => __('website.navbar.home'),
+                'active' => false,
+                'url' => route('website-home'),
+            ],
+            [
+                'name' => __('website.navbar.contact_us'),
+                'active' => true,
+            ],
+        ],
+    ])
+
     <div class="contact-us-section pt-10">
         <div class="contact-us-section-wrapper container">
             {{-- @isset($contact) --}}

@@ -10,12 +10,13 @@
             align-items: center;
             font-size  : 18px;
             padding    : 0;
+            color      : $white;
 
             &::before {
-                content  : '\2666';
+                content  : '\2727';
                 padding  : 0 10px;
                 font-size: 1.2rem;
-                color    : $primary;
+                color    : $secondary;
             }
 
             &:first-child,
@@ -28,7 +29,7 @@
 
             &.active {
                 a {
-                    cursor     : unset;
+                    cursor        : unset;
                     // color      : $primary !important;
                     // font-weight: bold;
                 }
