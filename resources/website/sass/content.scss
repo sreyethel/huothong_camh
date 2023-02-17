@@ -130,15 +130,27 @@
                     height: 140px;
                     background-color: white;
                     margin: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     a{
-                        padding: 45px;
-                        display: block;
+                        padding: 30px;
+                        text-align: center;
                         transition: .3s;
-                        margin-top: 10px;
-    
-                        &:hover {
-                            color: $price;
+                        font-size: 18px;
+                        
+                        h6{
+                            transition: .3s;
+                            &:hover{
+                                color: deeppink;
+                            }
                         }
+                        
+                        // padding-top: 10px;
+    
+                        // &:hover {
+                        //     color: $price;
+                        // }
                     }
                 }
             }
@@ -190,7 +202,7 @@
 
             &-icon{
                 position: absolute;
-                transform: translate(320px, -50px);
+                transform: translate(330px, -50px);
                 padding: 8px 8px;
                 background-color: #fff;
                 color: #000;
@@ -348,11 +360,12 @@
     }
     &-slide{
         position: absolute;
-        width: 85%;
+        width: 90%;
+        margin: 0 auto;
         height: 430px;
         background-color: rgba(251, 253, 253, 0.164);
         top: 15rem;
-        left: 6rem;
+        // left: 6rem;
         text-align: center;
         padding: 80px;
 
