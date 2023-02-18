@@ -10,13 +10,13 @@
                 <div @class(['item', 'active' => Request::is('/')])>
                     <a href="{{ route('website-home') }}">@lang('website.navbar.home')</a>
                 </div>
-                <div @class(['item', 'active' => Request::is('about-us')])>
+                <div @class(['item', 'active' => Request::is('page/about-us')])>
                     <a href="{{ route('website-page-about-us') }}">@lang('website.navbar.about_us')</a>
                 </div>
                 <div @class(['item', 'active' => Request::is('product*')])>
                     <a href="{{ route('website-product-index') }}">@lang('website.navbar.product')</a>
                 </div>
-                <div @class(['item', 'active' => Request::is('contact-us')])>
+                <div @class(['item', 'active' => Request::is('page/contact-us')])>
                     <a href="{{ route('website-page-contact-us') }}">@lang('website.navbar.contact_us')</a>
                 </div>
             </div>
