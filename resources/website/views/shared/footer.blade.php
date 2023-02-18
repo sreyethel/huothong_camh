@@ -2,9 +2,7 @@
     <div class="container">
         <div class="flex justify-between py-10">
             <div class="logo">
-                <a href="#">
-                    <img src="{{ asset('images/logo/logo.png') }}" alt="">
-                </a>
+                <img src="{{ asset('images/logo/logo.png') }}" alt="">
                 <p class="pt-5">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl sit amet
                     tincidunt

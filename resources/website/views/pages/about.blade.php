@@ -20,7 +20,6 @@
     ])
 
     <!-- about us section -->
-
     <div class="about-us-section">
         <div class="about-us-section-wrapper container">
             <div class="row">

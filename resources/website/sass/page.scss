@@ -56,19 +56,10 @@
                 font-size: 1.5rem;
             }
 
-            &-btn {
-                display        : grid;
-                place-items    : flex-start;
-                justify-content: flex-start;
-                grid-auto-flow : column;
-                grid-gap       : 1rem;
-
-
-                button {
-                    @include buttonWithoutAnimation(#ff416c, #ff4b2b, rgb(221 26 68 / 36%), $white);
-                    padding   : 10px 20px;
-                    margin-top: 30px;
-                }
+            .btn {
+                @include buttonWithoutAnimation(#ff416c, #ff4b2b, rgb(221 26 68 / 36%), $white);
+                padding   : 10px 40px;
+                margin-top: 30px;
             }
         }
     }

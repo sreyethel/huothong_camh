@@ -1,8 +1,8 @@
 <div class="navbar bg-white shadow-sm">
     <div class="container">
         <div class="h-24 flex items-center justify-between">
-            <div class="logo -ml-8">
-                <a href="#">
+            <div class="logo">
+                <a href="{{ route('website-home') }}">
                     <img src="{{ asset('images/logo/logo.jpg') }}" alt="" class="h-24">
                 </a>
             </div>
