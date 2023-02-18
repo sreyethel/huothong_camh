@@ -1,4 +1,36 @@
 .navbar {
+    box-shadow: 3.346px 3.716px 22.5px rgb(0 0 0 / 7%);
+    transition: all 0.3s ease-in-out;
+
+    &.is_sticky {
+        position        : fixed;
+        top             : 0;
+        left            : 0;
+        right           : 0;
+        z-index         : 9999;
+        width           : 100%;
+        animation       : fadeInDown 0.8s ease-in-out;
+        background-color: hsla(0, 0%, 100%, .8);
+        box-shadow      : 14px 14px 60px 0 rgb(80 20 173 / 6%);
+        backdrop-filter : blur(50px);
+    }
+
+    @keyframes fadeInDown {
+        0% {
+            opacity  : 0;
+            transform: translate3d(0, -100%, 0);
+        }
+
+        50% {
+            opacity  : 0.5;
+            transform: translate3d(0, 0, 0);
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
     .logo {
         img {
             height: 70px;
@@ -8,6 +40,10 @@
     .menu {
         .item {
             font-size: 1rem;
+
+            &.active {
+                color: $primary;
+            }
         }
     }
 }

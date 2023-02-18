@@ -104,18 +104,61 @@
 // Sale section
 .sale-section {
     &.overlay {
-        position             : relative;
-        background-blend-mode: overlay;
-        padding              : 90px 0;
-        height               : auto;
+        background-color        : rgba(248, 249, 250, 0.96);
+        position                : relative;
+        background-blend-mode   : overlay;
+        height                  : auto;
+        // background-image     : url(../../../public/images/sky-bg.jpg);
+        background-repeat       : no-repeat;
+        background-size         : cover;
+        background-blend-mode   : overlay;
 
         &::before {
-            content            : "";
-            height             : 100%;
-            width              : 100%;
-            position           : absolute;
-            // background-color: rgba(255, 255, 255, 0.2);
-            z-index            : 1;
+            content         : "";
+            height          : 100%;
+            width           : 100%;
+            position        : absolute;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index         : 1;
+        }
+    }
+
+    .snow-effect {
+        &::before {
+            content          : "";
+            height           : 100%;
+            width            : 100%;
+            background-image : url(../../../public/images/snow.png), url(../../../public/images/snow2.png);
+            background-repeat: repeat;
+            position         : absolute;
+            left             : 0;
+            top              : 0;
+            z-index          : 0;
+            image-rendering  : -webkit-optimize-contrast;
+            image-rendering  : crisp-edges;
+            will-change      : background-position;
+            -webkit-animation: an-snow 20s linear infinite;
+            animation        : an-snow 20s linear infinite;
+        }
+
+        @keyframes an-snow {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        @-webkit-keyframes an-snow {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 100% 100%;
+            }
         }
     }
 
@@ -123,6 +166,7 @@
         .row {
             display        : flex;
             justify-content: space-between;
+            padding        : 90px 0;
         }
 
         .column {
@@ -185,6 +229,7 @@
                     display         : flex;
                     justify-content : center;
                     align-items     : center;
+                    box-shadow      : 3.346px 3.716px 22.5px rgb(0 0 0 / 7%);
 
                     a {
                         padding   : 30px;
@@ -212,33 +257,8 @@
                 position: absolute;
                 bottom  : 0;
                 right   : 0;
-                height  : 700px;
+                height  : 650px;
                 z-index : 0;
-            }
-        }
-    }
-
-    .title-1 {
-        display   : block;
-        text-align: center;
-
-        span {
-            padding         : 4px 15px 3px;
-            color           : $white;
-            background-color: $primary-color;
-            border-radius   : 4px;
-        }
-
-        hr {
-            width     : 80px;
-            margin    : 20px auto 0;
-            height    : 2px;
-            color     : black;
-            opacity   : 1;
-            transition: all 0.5s;
-
-            &:hover {
-                width: 150px;
             }
         }
     }

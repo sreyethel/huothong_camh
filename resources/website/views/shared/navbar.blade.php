@@ -1,4 +1,4 @@
-<div class="navbar bg-white shadow-sm">
+<div class="navbar bg-white shadow-sm isFixed">
     <div class="container">
         <div class="h-24 flex items-center justify-between">
             <div class="logo">
@@ -7,16 +7,16 @@
                 </a>
             </div>
             <div class="menu grid gap-7 grid-flow-col">
-                <div class="item">
+                <div @class(['item', 'active' => Request::is('/')])>
                     <a href="{{ route('website-home') }}">@lang('website.navbar.home')</a>
                 </div>
-                <div class="item">
+                <div @class(['item', 'active' => Request::is('about-us')])>
                     <a href="{{ route('website-page-about-us') }}">@lang('website.navbar.about_us')</a>
                 </div>
-                <div class="item">
-                    <a href="#">@lang('website.navbar.product')</a>
+                <div @class(['item', 'active' => Request::is('product*')])>
+                    <a href="{{ route('website-product-index') }}">@lang('website.navbar.product')</a>
                 </div>
-                <div class="item">
+                <div @class(['item', 'active' => Request::is('contact-us')])>
                     <a href="{{ route('website-page-contact-us') }}">@lang('website.navbar.contact_us')</a>
                 </div>
             </div>

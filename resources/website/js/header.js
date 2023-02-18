@@ -21,7 +21,6 @@ $('#searchToggleClose').click(function () {
     searchToggle();
 });
 
-
 const menu = document.querySelector('.menu-responsive-content');
 
 var tl = gsap.timeline();

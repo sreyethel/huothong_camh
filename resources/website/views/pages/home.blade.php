@@ -3,31 +3,25 @@
     'title' => 'Home',
 ])
 @section('content')
-    <div class="sale-section overlay mt-20 py-10">
+    <div class="sale-section overlay">
         <div class="sale-section-wrapper container">
             <div class="row">
                 <div class="sale-section-wrapper-title">
-                    <p class="text-lg pb-2 font-light">Do You Want to Work with us?</p>
-                    <h1 class="font-bold text-5xl text-gray-800">Find Better Place <br>To Work</h1>
+                    <p class="text-lg pb-2 font-light">Do You Want to Live with us?</p>
+                    <h1 class="font-bold text-5xl text-gray-800">Find Better Place <br>To Live</h1>
                     <div class="grid gap-5 place-items-start place-content-start">
                         <button class="px-6 py-2 rounded-full text-white">Submit Property</button>
                         <h1 class="text-xl text-gray-900">What are you looking for?</h1>
                         <div class="grid-icon">
                             <div class="flex items-center">
-                                <div class="box-icon rounded-md shadow-md">
-                                    <a href="#">
-                                        <i class="h-10 w-10 ml-5 text-pink-600" data-feather="home"></i>
-                                        <h6 class="mt-3 text-base">Home</h6>
-                                    </a>
-                                </div>
-                                <div class="box-icon rounded-md shadow-md mx-5">
+                                <div class="box-icon rounded-md shadow-md mr-5">
                                     <a href="#">
                                         <i class="h-10 w-10 ml-5 text-pink-600" data-feather="bookmark"></i>
                                         <h6 class="mt-3 text-base">Booking</h6>
                                     </a>
                                 </div>
                                 <div class="box-icon rounded-md shadow-md">
-                                    <a href="#">
+                                    <a href="{{ route('website-product-index') }}">
                                         <i class="h-10 w-10 ml-5 text-pink-600" data-feather="box"></i>
                                         <h6 class="mt-3 text-base">Product</h6>
                                     </a>
@@ -41,6 +35,7 @@
                 </div>
             </div>
         </div>
+        <div class="snow-effect"></div>
     </div>
 
     <!-- about us section -->
@@ -83,7 +78,7 @@
                         <div class="right-bdr"></div>
                     </div>
                 </h2>
-                <a class="view-all" href="http://">
+                <a class="view-all" href="{{ route('website-product-index') }}">
                     <h3>View All</h3>
                     <i data-feather="arrow-right"></i>
                 </a>
@@ -161,7 +156,7 @@
                     </div>
                     <div class="product-box-content p-8">
                         <h1 class="text-xl font-semibold ">Purple Wall Paint Colour</h1>
-                        <h2 class="text-lg font-semibold mt-2 mb-2">$120.00*</h2>
+                        <h2 class="text-lg font-semibold mt-2 mb-2">$120.00</h2>
                         <p class="text-base">
                             Real estate is divided into several categories, including residential property, commercial
                             property and industrial property.
@@ -182,7 +177,7 @@
                     </div>
                     <div class="product-box-content p-8">
                         <h1 class="text-xl font-semibold ">Pink Paint Colour</h1>
-                        <h2 class="text-lg font-semibold mt-2 mb-2">$150.00*</h2>
+                        <h2 class="text-lg font-semibold mt-2 mb-2">$150.00</h2>
                         <p class="text-base">
                             Elegant retreat in a quiet Coral Gables setting. This home provides wonderful entertaining
                             spaces with a chef kitchen opening…
@@ -203,7 +198,7 @@
                     </div>
                     <div class="product-box-content p-8">
                         <h1 class="text-xl font-semibold ">House Exterior Paint idea</h1>
-                        <h2 class="text-lg font-semibold mt-2 mb-2">$6558.00*</h2>
+                        <h2 class="text-lg font-semibold mt-2 mb-2">$6558.00</h2>
                         <p class="text-base">Real estate is divided into several categories, including residential
                             property, commercial property and industrial property.</p>
                         <div class="flex justify-between items-center mt-5">

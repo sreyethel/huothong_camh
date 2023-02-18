@@ -4,6 +4,12 @@ AOS.init();
 
 $(window).scroll(function () {
     var scroll = $(this).scrollTop();
+    var height = $('.navbar').height();
+    if (scroll > height + 200) {
+        $('.isFixed').addClass('is_sticky');
+    } else {
+        $('.isFixed').removeClass('is_sticky');
+    }
 
     if (scroll) {
         $('#toTop').addClass("reveal");
@@ -20,8 +26,8 @@ $(document).ready(function () {
 });
 
 function isSticky() {
-    var height = $('.navbar').height();
-    $(this).scrollTop() > height ? $('.navbar').addClass('is_sticky') : $('.navbar').removeClass(
+    var height = $('.isFixed').height();
+    $(this).scrollTop() > height ? $('.isFixed').addClass('is_sticky') : $('.isFixed').removeClass(
         'is_sticky');
 }
 
