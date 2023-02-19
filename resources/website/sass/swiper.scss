@@ -137,108 +137,52 @@
         }
     }
 
-    .gift-slide {
-        position: relative;
-        height  : 300px;
+    &-pagination {
+        position      : absolute;
+        bottom        : 0;
+        left          : 0;
+        right         : 0;
+        padding       : 10px 0;
+        display       : grid;
+        grid-auto-flow: column;
+        gap           : 10px;
+        place-content : center;
 
-        .overlay {
-            position  : absolute;
-            width     : 100%;
-            height    : 50%;
-            background: linear-gradient(to top, #482526, transparent);
-            bottom    : 0;
-            transition: all 0.15s ease-in;
-        }
-
-        img {
-            width     : 100%;
-            height    : 100%;
-            object-fit: cover;
-        }
-
-        .text {
-            position       : absolute;
-            left           : 0;
-            right          : 0;
-            bottom         : 15px;
-            display        : flex;
-            flex-direction : column;
-            justify-content: center;
+        &-bullet {
+            height         : 20px !important;
+            width          : 20px !important;
+            margin         : 0 !important;
+            padding        : 0 !important;
+            cursor         : pointer;
+            border         : 0;
+            display        : flex !important;
             align-items    : center;
-            text-align     : center;
-            color          : #fff;
-            z-index        : 1;
+            justify-content: center;
+            outline        : none;
+            opacity        : 1 !important;
+            background     : $white !important;
+            color          : transparent;
+            background     : transparent !important;
 
-            p {
-                font-size: 1rem;
-                margin   : 0;
-            }
-        }
-    }
-
-    .exclusive-slide {
-        box-shadow      : unset;
-        background-color: unset;
-
-        .text {
-            text-align: center;
-
-            h3 {
-                @include fontBold(0.7px);
-                font-size: 1.3rem;
-                margin   : 1.5rem;
+            &::before {
+                content        : "•";
+                width          : 20px;
+                height         : 20px;
+                font-size      : 30px;
+                opacity        : 1.2;
+                color          : #ffffff;
+                border         : 1px solid;
+                border-radius  : 50%;
+                display        : flex;
+                align-items    : center;
+                justify-content: center;
             }
 
-            p {
-                font-size: 1rem;
-                margin   : 0;
-            }
-        }
-    }
-
-    &-button-next,
-    &-button-prev {
-        width           : 50px !important;
-        height          : 50px !important;
-        border-radius   : 50%;
-        transform       : translateY(20%);
-        background-color: $white;
-        color           : $primary;
-        cursor          : pointer;
-        transition      : all .2s ease-in-out;
-        box-shadow      : 0 7px 15px 0 rgb(0 0 0 / 15%);
-
-        &:hover {
-            width           : 55px !important;
-            height          : 55px !important;
-            background-color: aliceblue;
-        }
-
-        &::after {
-            content: '' !important;
-        }
-
-        svg {
-            height: 2rem;
-        }
-    }
-
-    &.partner {
-        cursor: pointer;
-
-        .swiper-button-next,
-        .swiper-button-prev {
-            width : 30px !important;
-            height: 30px !important;
-
-            &:hover {
-                width           : 35px !important;
-                height          : 35px !important;
-                background-color: aliceblue;
-            }
-
-            svg {
-                height: 1rem;
+            &-active {
+                &::before {
+                    border-color: $primary;
+                    color       : $primary;
+                }
             }
         }
     }

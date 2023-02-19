@@ -57,7 +57,8 @@
             }
 
             .btn {
-                @include buttonWithoutAnimation(#ff416c, #ff4b2b, rgb(221 26 68 / 36%), $white);
+                // @include buttonWithoutAnimation(#ff416c, #ff4b2b, rgb(221 26 68 / 36%), $white);
+                @include buttonWithoutAnimation(#00a6f2, #2b97d18f, rgb(138 129 131 / 36%), $white);
                 padding   : 10px 40px;
                 margin-top: 30px;
             }

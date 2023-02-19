@@ -68,15 +68,12 @@
         </div>
     </div>
 
+    <!-- product section -->
     <div class="sale-section">
         <div class="sale-section-wrapper container">
             <div class="sale-section-wrapper-label">
                 <h2>
                     Find Our Properties
-                    <div class="title-bdr">
-                        <div class="left-bdr"></div>
-                        <div class="right-bdr"></div>
-                    </div>
                 </h2>
                 <a class="view-all" href="{{ route('website-product-index') }}">
                     <h3>View All</h3>
@@ -101,8 +98,8 @@
                         </p>
                         <div class="flex justify-between items-center mt-5">
                             <h3 class="text-gray-500 font-semibold text-sm">August 4, 2022</h3>
-                            <button
-                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</button>
+                            <a href="{{ route('website-product-detail', 'property-house-villa') }}"
+                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</a>
                         </div>
                     </div>
                 </div>
@@ -122,8 +119,8 @@
                         </p>
                         <div class="flex justify-between items-center mt-5">
                             <h3 class="text-gray-500 font-semibold text-sm">August 4, 2022</h3>
-                            <button
-                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</button>
+                            <a href="{{ route('website-product-detail', 'property-house-villa') }}"
+                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</a>
                         </div>
                     </div>
                 </div>
@@ -142,8 +139,8 @@
                             commercial property and industrial property.</p>
                         <div class="flex justify-between items-center mt-5">
                             <h3 class="text-gray-500 font-semibold text-sm">August 4, 2022</h3>
-                            <button
-                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</button>
+                            <a href="{{ route('website-product-detail', 'property-house-villa') }}"
+                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</a>
                         </div>
                     </div>
                 </div>
@@ -163,8 +160,8 @@
                         </p>
                         <div class="flex justify-between items-center mt-5">
                             <h3 class="text-gray-500 font-semibold text-sm">August 4, 2022</h3>
-                            <button
-                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</button>
+                            <a href="{{ route('website-product-detail', 'property-house-villa') }}"
+                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</a>
                         </div>
                     </div>
                 </div>
@@ -184,8 +181,8 @@
                         </p>
                         <div class="flex justify-between items-center mt-5">
                             <h3 class="text-gray-500 font-semibold text-sm">August 4, 2022</h3>
-                            <button
-                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</button>
+                            <a href="{{ route('website-product-detail', 'property-house-villa') }}"
+                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</a>
                         </div>
                     </div>
                 </div>
@@ -203,8 +200,8 @@
                             property, commercial property and industrial property.</p>
                         <div class="flex justify-between items-center mt-5">
                             <h3 class="text-gray-500 font-semibold text-sm">August 4, 2022</h3>
-                            <button
-                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</button>
+                            <a href="{{ route('website-product-detail', 'property-house-villa') }}"
+                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</a>
                         </div>
                     </div>
                 </div>

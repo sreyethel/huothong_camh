@@ -42,8 +42,8 @@
                         </p>
                         <div class="flex justify-between items-center mt-5">
                             <h3 class="text-gray-500 font-semibold text-sm">August 4, 2022</h3>
-                            <button
-                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</button>
+                            <a href="{{ route('website-product-detail', 'property-house-villa') }}"
+                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</a>
                         </div>
                     </div>
                 </div>
@@ -63,8 +63,8 @@
                         </p>
                         <div class="flex justify-between items-center mt-5">
                             <h3 class="text-gray-500 font-semibold text-sm">August 4, 2022</h3>
-                            <button
-                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</button>
+                            <a href="{{ route('website-product-detail', 'property-house-villa') }}"
+                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</a>
                         </div>
                     </div>
                 </div>
@@ -83,8 +83,8 @@
                             commercial property and industrial property.</p>
                         <div class="flex justify-between items-center mt-5">
                             <h3 class="text-gray-500 font-semibold text-sm">August 4, 2022</h3>
-                            <button
-                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</button>
+                            <a href="{{ route('website-product-detail', 'property-house-villa') }}"
+                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</a>
                         </div>
                     </div>
                 </div>
@@ -104,8 +104,8 @@
                         </p>
                         <div class="flex justify-between items-center mt-5">
                             <h3 class="text-gray-500 font-semibold text-sm">August 4, 2022</h3>
-                            <button
-                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</button>
+                            <a href="{{ route('website-product-detail', 'property-house-villa') }}"
+                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</a>
                         </div>
                     </div>
                 </div>
@@ -125,8 +125,8 @@
                         </p>
                         <div class="flex justify-between items-center mt-5">
                             <h3 class="text-gray-500 font-semibold text-sm">August 4, 2022</h3>
-                            <button
-                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</button>
+                            <a href="{{ route('website-product-detail', 'property-house-villa') }}"
+                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</a>
                         </div>
                     </div>
                 </div>
@@ -144,8 +144,8 @@
                             property, commercial property and industrial property.</p>
                         <div class="flex justify-between items-center mt-5">
                             <h3 class="text-gray-500 font-semibold text-sm">August 4, 2022</h3>
-                            <button
-                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</button>
+                            <a href="{{ route('website-product-detail', 'property-house-villa') }}"
+                                class="px-6 py-2 bg-white rounded-full border-solid border-2 border-gray-300">Detail</a>
                         </div>
                     </div>
                 </div>

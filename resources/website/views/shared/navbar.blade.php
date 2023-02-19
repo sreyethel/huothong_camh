@@ -23,9 +23,6 @@
             <div class="icons">
                 <div class="flex">
                     <div class="px-3">
-                        <a href="#"><i class="h-5 w-5" data-feather="globe"></i></a>
-                    </div>
-                    <div class="px-3">
                         <a href="#"><i class="h-5 w-5" data-feather="search"></i></a>
                     </div>
                     <div class="px-3">
