@@ -14,13 +14,13 @@
                         <h1 class="text-xl text-gray-900">What are you looking for?</h1>
                         <div class="grid-icon">
                             <div class="flex items-center">
-                                <div class="box-icon rounded-md shadow-md mr-5">
+                                <div class="box-icon rounded-md mr-5">
                                     <a href="#">
                                         <i class="h-10 w-10 ml-5 text-pink-600" data-feather="bookmark"></i>
                                         <h6 class="mt-3 text-base">Booking</h6>
                                     </a>
                                 </div>
-                                <div class="box-icon rounded-md shadow-md">
+                                <div class="box-icon rounded-md">
                                     <a href="{{ route('website-product-index') }}">
                                         <i class="h-10 w-10 ml-5 text-pink-600" data-feather="box"></i>
                                         <h6 class="mt-3 text-base">Product</h6>
