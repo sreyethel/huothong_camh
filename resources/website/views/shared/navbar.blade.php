@@ -29,7 +29,7 @@
                         <a href="#"><i class="h-5 w-5" data-feather="shopping-cart"></i></a>
                     </div>
                     <div class="px-3">
-                        <a href="#"><i class="h-5 w-5" data-feather="user"></i></a>
+                        <a href="{{ route('website-user-user-setting') }}"><i class="h-5 w-5" data-feather="user"></i></a>
                     </div>
                 </div>
             </div>
