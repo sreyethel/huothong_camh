@@ -3,15 +3,15 @@
 @section('content')
     <div class="user-setting container min-h-[800px] py-8 ">
         <div class="flex flex-row h-auto">
-            <div class="w-[20%] user-setting-sidebar bg-white p-14 rounded-tl-lg rounded-bl-lg rounded-tr-none rounded-br-none">
-                <h1 class="text-xl font-semibold text-gray-900">User Profile</h1>
+            <div class="w-[30%] user-setting-sidebar p-14 bg-slate-200  rounded-tl-lg rounded-bl-lg rounded-tr-none rounded-br-none">
+                <h1 class="text-xl font-semibold text-gray-900 border-b-2 border-gray-600">User Profile</h1>
                 <div class="flex flex-col mt-5">
-                    <div class="flex flex-row items-center single-line">
+                    <div class="flex flex-row items-center">
                         <i class="h-8 w-8" data-feather="user-plus"></i>
                         <a href="{{ route('website-user-user-setting') }}" class="py-4 text-gray-900 ml-2 text-lg">User Info</a>
                         {{-- <span></span> --}}
                     </div>
-                    <div class="flex flex-row items-center">
+                    <div class="flex flex-row items-center ">
                         <i class="h-8 w-8" data-feather="heart"></i>
                         <a href="{{ route('website-user-user-favorite') }}" class="py-4 text-gray-900 ml-2 text-lg">Favorites</a>
                     </div>
@@ -20,17 +20,16 @@
                         <a href="{{ route('website-user-user-cart') }}" class="py-4 text-gray-900 ml-2 text-lg">Carts</a>
                     </div>
                     <div class="flex flex-row items-center">
-                        <i class="h-8 w-8" data-feather="settings"></i>
+                        <i class="h-8 w-8" data-feather="key"></i>
                         <a href="{{ route('website-user-user-password') }}" class="py-4 text-gray-900 ml-2 text-lg">Password</a>
                     </div>
-                    <div class="flex flex-row items-center">
+                    <div class="flex flex-row items-center border-t-2 border-gray-600">
                         <i class="h-8 w-8" data-feather="log-out"></i>
-                        <a href="#" class="py-4 text-gray-900 ml-2 text-lg">Log out</a>
+                        <a href="{{ route('website-home') }}" class="py-4 text-gray-900 ml-2 text-lg">Log out</a>
                     </div>
-                    
                 </div>
             </div>
-            <div class="w-[80%] user-setting-favorite bg-white p-14 rounded-lg rounded-tr-lg rounded-tl-none rounded-br-none">
+            <div class="w-[70%] user-setting-favorite bg-white p-14 rounded-lg rounded-tr-lg rounded-tl-none rounded-bl-none">
                 <h4 class=" text-md text-gray-900 text-xl font-semibold">Favorite Carts</h4>
                 <div class="w-full flex flex-row user-setting-favorite-cart mt-5">
                     <div class="w-[30%]">
