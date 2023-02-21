@@ -2,34 +2,40 @@
 @include('website::components.meta')
 @section('content')
     <div class="user-setting container min-h-[800px] py-8 ">
-        <div class="flex flex-row h-auto">
-            <div class="w-[30%] user-setting-sidebar p-14 bg-slate-200  rounded-tl-lg rounded-bl-lg rounded-tr-none rounded-br-none">
-                <h1 class="text-xl font-semibold text-gray-900 border-b-2 border-gray-600">User Profile</h1>
-                <div class="flex flex-col mt-5">
-                    <div class="flex flex-row items-center">
-                        <i class="h-8 w-8" data-feather="user-plus"></i>
-                        <a href="{{ route('website-user-user-setting') }}" class="py-4 text-gray-900 ml-2 text-lg">User Info</a>
-                        {{-- <span></span> --}}
+        <div class="flex flex-row space-x-5 h-auto">
+            <div class="w-[30%] user-setting-sidebar py-10 pl-2 pr-0 bg-slate-200  rounded-lg">
+                <div class="user-setting-sidebar-profile flex flex-row space-x-4 items-center">
+                    <div class="profile-box" style="background-image: url('{{ asset('images/logo/1234.png') }}')">
                     </div>
-                    <div class="flex flex-row items-center ">
-                        <i class="h-8 w-8" data-feather="heart"></i>
+                    <div class="user-setting-sidebar-profile-title">
+                        <h1 class="text-black text-lg">Admin</h1>
+                        <p class="text-black text-sm">0974775242</p>
+                    </div>
+                </div>
+                <div class="flex flex-col mt-5">
+                    <div class="flex flex-row items-center left-nav">
+                        <i class="h-8 w-8 ml-2" data-feather="user-plus"></i>
+                        <a href="{{ route('website-user-user-setting') }}" class="py-4 text-gray-900 ml-2 text-lg single-line">User Info</a>
+                    </div>
+                    <div class="flex flex-row items-center left-nav ">
+                        <i class="h-8 w-8 ml-2" data-feather="heart"></i>
                         <a href="{{ route('website-user-user-favorite') }}" class="py-4 text-gray-900 ml-2 text-lg">Favorites</a>
                     </div>
-                    <div class="flex flex-row items-center">
-                        <i class="h-8 w-8" data-feather="shopping-cart"></i>
+                    <div class="flex flex-row items-center left-nav">
+                        <i class="h-8 w-8 ml-2" data-feather="shopping-cart"></i>
                         <a href="{{ route('website-user-user-cart') }}" class="py-4 text-gray-900 ml-2 text-lg">Carts</a>
                     </div>
-                    <div class="flex flex-row items-center">
-                        <i class="h-8 w-8" data-feather="key"></i>
+                    <div class="flex flex-row items-center left-nav">
+                        <i class="h-8 w-8 ml-2" data-feather="key"></i>
                         <a href="{{ route('website-user-user-password') }}" class="py-4 text-gray-900 ml-2 text-lg">Password</a>
                     </div>
-                    <div class="flex flex-row items-center border-t-2 border-gray-600">
-                        <i class="h-8 w-8" data-feather="log-out"></i>
-                        <a href="{{ route('website-home') }}" class="py-4 text-gray-900 ml-2 text-lg">Log out</a>
+                    <div class="flex flex-row items-center">
+                        <i class="h-8 w-8 ml-2 text-orange-600" data-feather="log-out"></i>
+                        <a href="{{ route('website-home') }}" class="py-4 text-gray-900 ml-2 text-lg log-out">Log out</a>
                     </div>
                 </div>
             </div>
-            <div class="w-[70%] user-setting-favorite bg-white p-14 rounded-lg rounded-tr-lg rounded-tl-none rounded-bl-none">
+            <div class="w-[70%] user-setting-favorite bg-white p-10 rounded-lg">
                 <h4 class=" text-md text-gray-900 text-xl font-semibold">Favorite Carts</h4>
                 <div class="w-full flex flex-row user-setting-favorite-cart mt-5">
                     <div class="w-[30%]">

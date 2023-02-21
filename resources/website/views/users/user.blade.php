@@ -2,34 +2,40 @@
 @include('website::components.meta')
 @section('content')
     <div class="user-setting container min-h-[800px] py-8 ">
-        <div class="flex flex-row h-auto">
-            <div class="w-[30%] user-setting-sidebar p-14 bg-slate-200  rounded-tl-lg rounded-bl-lg rounded-tr-none rounded-br-none">
-                <div class="border-b-2 border-gray-600"><h1 class="text-xl font-semibold text-gray-900">User Profile</h1></div>
-                <div class="flex flex-col mt-5">
-                    <div class="flex flex-row items-center">
-                        <i class="h-8 w-8" data-feather="user-plus"></i>
-                        <a href="{{ route('website-user-user-setting') }}" class="py-4 text-gray-900 ml-2 text-lg">User Info</a>
-                        {{-- <span></span> --}}
+        <div class="flex flex-row space-x-5 h-auto">
+            <div class="w-[30%] user-setting-sidebar py-10 pl-2 pr-0 bg-slate-200  rounded-lg">
+                <div class="user-setting-sidebar-profile flex flex-row space-x-4 items-center">
+                    <div class="profile-box" style="background-image: url('{{ asset('images/logo/1234.png') }}')">
                     </div>
-                    <div class="flex flex-row items-center ">
-                        <i class="h-8 w-8" data-feather="heart"></i>
+                    <div class="user-setting-sidebar-profile-title">
+                        <h1 class="text-black text-lg">Admin</h1>
+                        <p class="text-black text-sm">0974775242</p>
+                    </div>
+                </div>
+                <div class="flex flex-col mt-5">
+                    <div class="flex flex-row items-center left-nav">
+                        <i class="h-6 w-6 ml-2" data-feather="user-plus"></i>
+                        <a href="{{ route('website-user-user-setting') }}" class="py-4 text-gray-900 ml-2 text-lg single-line">User Info</a>
+                    </div>
+                    <div class="flex flex-row items-center left-nav ">
+                        <i class="h-6 w-6 ml-2" data-feather="heart"></i>
                         <a href="{{ route('website-user-user-favorite') }}" class="py-4 text-gray-900 ml-2 text-lg">Favorites</a>
                     </div>
-                    <div class="flex flex-row items-center">
-                        <i class="h-8 w-8" data-feather="shopping-cart"></i>
+                    <div class="flex flex-row items-center left-nav">
+                        <i class="h-6 w-6 ml-2" data-feather="shopping-cart"></i>
                         <a href="{{ route('website-user-user-cart') }}" class="py-4 text-gray-900 ml-2 text-lg">Carts</a>
                     </div>
-                    <div class="flex flex-row items-center">
-                        <i class="h-8 w-8" data-feather="key"></i>
+                    <div class="flex flex-row items-center left-nav">
+                        <i class="h-6 w-6 ml-2" data-feather="key"></i>
                         <a href="{{ route('website-user-user-password') }}" class="py-4 text-gray-900 ml-2 text-lg">Password</a>
                     </div>
-                    <div class="flex flex-row items-center border-t-2 border-gray-600">
-                        <i class="h-8 w-8" data-feather="log-out"></i>
-                        <a href="{{ route('website-home') }}" class="py-4 text-gray-900 ml-2 text-lg">Log out</a>
+                    <div class="flex flex-row items-center">
+                        <i class="h-6 w-6 ml-2 text-orange-600" data-feather="log-out"></i>
+                        <a href="{{ route('website-home') }}" class="py-4 text-gray-900 ml-2 text-lg log-out">Log out</a>
                     </div>
                 </div>
             </div>
-            <div class="w-[70%] user-setting-form bg-white p-14 rounded-lg rounded-tr-lg rounded-tl-none rounded-bl-none">
+            <div class="w-[70%] user-setting-form bg-white p-10 rounded-lg">
                 <div class="flex flex-col ">
                     <div class="flex flex-row items-center">
                         <div class="avatar-upload">
@@ -50,39 +56,39 @@
                     <div class="user-setting-form-input flex flex-row justify-between space-x-14 mt-5">
                         <div class="w-1/2">
                             <h1 class="my-2 text-md text-gray-900">Name</h1>
-                            <input type="text" class="form-control outline-none shadow-md focus:bg-slate-100" placeholder="Enter your name"/>
+                            <input type="text" class="form-control outline-none shadow-sm focus:bg-slate-100" placeholder="Enter your name"/>
                         </div>
                         <div class="w-1/2">
                             <h1 class="my-2 text-md text-gray-900">FullName</h1>
-                            <input type="text" class="form-control outline-none shadow-md focus:bg-slate-100" placeholder="Enter your full name"/>
+                            <input type="text" class="form-control outline-none shadow-sm focus:bg-slate-100" placeholder="Enter your full name"/>
                         </div>
                     </div>
                     <div class="user-setting-form-input flex flex-row justify-between space-x-14 mt-5">
                         <div class="w-1/2">
                             <h1 class="my-2 text-md text-gray-900">Email Address</h1>
-                            <input type="text" class="form-control outline-none shadow-md focus:bg-slate-100" placeholder="Enter your email address"/>
+                            <input type="text" class="form-control outline-none shadow-sm focus:bg-slate-100" placeholder="Enter your email address"/>
                         </div>
                         <div class="w-1/2">
                             <h1 class="my-2 text-md text-gray-900">Phone Number</h1>
-                            <input type="text" class="form-control outline-none shadow-md focus:bg-slate-100" placeholder="Enter your phone number"/>
+                            <input type="text" class="form-control outline-none shadow-sm focus:bg-slate-100" placeholder="Enter your phone number"/>
                         </div>
                     </div>
                     <div class="user-setting-form-input flex flex-row justify-between space-x-14 mt-5">
                         <div class="w-1/2">
                             <h1 class="my-2 text-md text-gray-900">Location</h1>
-                            <input type="text" class="form-control outline-none shadow-md focus:bg-slate-100" placeholder="Enter your location"/>
+                            <input type="text" class="form-control outline-none shadow-sm focus:bg-slate-100" placeholder="Enter your location"/>
                         </div>
                         <div class="w-1/2">
                             <h1 class="my-2 text-md text-gray-900">Postal Code</h1>
-                            <input type="text" class="form-control outline-none shadow-md focus:bg-slate-100" placeholder="Enter your postal code"/>
+                            <input type="text" class="form-control outline-none shadow-sm focus:bg-slate-100" placeholder="Enter your postal code"/>
                         </div>
                     </div>
                     <div class="text-right flex flex-row justify-end space-x-5 mt-14">
                         <div>
-                            <a href="#" class="btnCancel shadow-md">Cancel</a>
+                            <a href="#" class="btnCancel shadow-sm">Cancel</a>
                         </div>
                         <div>
-                            <a href="#" class="btnSave shadow-md">Save Change</a>
+                            <a href="#" class="btnSave shadow-sm">Save Change</a>
                         </div>
                     </div>
                 </div>
