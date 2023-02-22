@@ -9,8 +9,7 @@
                 <div class="sale-section-wrapper-title">
                     <p class="text-lg pb-2 font-light">Do You Want to Live with us?</p>
                     <h1 class="font-bold text-5xl text-gray-800">Find Better Place <br>To Live</h1>
-                    <div class="grid gap-5 place-items-start place-content-start">
-                        <button class="px-6 py-2 rounded-full text-white">Submit Property</button>
+                    <div class="grid gap-5 place-items-start place-content-start mt-20">
                         <h1 class="text-xl text-gray-900">What are you looking for?</h1>
                         <div class="grid-icon">
                             <div class="flex items-center">
