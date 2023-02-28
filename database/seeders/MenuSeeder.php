@@ -16,22 +16,22 @@ class MenuSeeder extends Seeder
     {
         Menu::truncate();
 
-        // Slider
+        // Dashboard
         Menu::create([
-            'name' => json_encode(['en' => 'Slider']),
-            'icon' => 'image',
-            'path' => 'admin/slider/list',
-            'active' => 'admin/slider/*',
-            'permission' => array("slider-view"),
+            'name' => json_encode(['en' => 'Dashboard']),
+            'icon' => 'home',
+            'path' => 'admin/dashboard',
+            'active' => 'admin/dashboard',
+            'permission' => array(''),
         ]);
 
-        // Category
+        // Product
         Menu::create([
-            'name' => json_encode(['en' => 'Category']),
-            'icon' => 'package',
-            'path' => 'admin/category/list',
-            'active' => 'admin/category/*',
-            'permission' => array('category-view'),
+            'name' => json_encode(['en' => 'Product']),
+            'icon' => 'grid',
+            'path' => 'admin/product/list',
+            'active' => 'admin/product/*',
+            'permission' => array('product-view'),
         ]);
 
         // Partner
@@ -43,20 +43,90 @@ class MenuSeeder extends Seeder
             'permission' => array('partner-view'),
         ]);
 
+        // Expert
+        Menu::create([
+            'name' => json_encode(['en' => 'Expert']),
+            'icon' => 'layers',
+            'path' => 'admin/expert/list',
+            'active' => 'admin/expert/*',
+            'permission' => array('expert-view'),
+        ]);
+
+        // Order management
+        $order = Menu::create([
+            'name' => json_encode(['en' => 'Order']),
+            'icon' => 'shopping-cart',
+            'active' => 'admin/order/*',
+            'permission' => array('order-view'),
+        ]);
+
+        // Order management - Pending
+        Menu::create([
+            'parent_id' => $order->id,
+            'name' => json_encode(['en' => 'Pending']),
+            'path' => 'admin/order/list?status=' . config('dummy.order_status.pending'),
+            'permission' => array('order-view'),
+            'active' => 'admin/order/list?status=pending',
+        ]);
+
+        // Order management - Cancelled
+        Menu::create([
+            'parent_id' => $order->id,
+            'name' => json_encode(['en' => 'Cancelled']),
+            'path' => 'admin/order/list?status=' . config('dummy.order_status.cancelled'),
+            'permission' => array('order-view'),
+            'active' => 'admin/order/list?status=cancelled',
+        ]);
+
+        // Order management - Confirmed
+        Menu::create([
+            'parent_id' => $order->id,
+            'name' => json_encode(['en' => 'Confirmed']),
+            'path' => 'admin/order/list?status=' . config('dummy.order_status.confirmed'),
+            'permission' => array('order-view'),
+            'active' => 'admin/order/list?status=confirmed',
+        ]);
+        
+        // Order management - Completed
+        Menu::create([
+            'parent_id' => $order->id,
+            'name' => json_encode(['en' => 'Completed']),
+            'path' => 'admin/order/list?status=' . config('dummy.order_status.completed'),
+            'permission' => array('order-view'),
+            'active' => 'admin/order/list?status=completed',
+        ]);
+
+        // Banner
+        Menu::create([
+            'name' => json_encode(['en' => 'Banner']),
+            'icon' => 'image',
+            'path' => 'admin/banner/list',
+            'active' => 'admin/banner/*',
+            'permission' => array('banner-view'),
+        ]);
+
         // User management
         $user = Menu::create([
             'name' => json_encode(['en' => 'Users']),
             'icon' => 'users',
-            'active' => 'admin/admin/*',
+            'active' => 'admin/user/*',
             'permission' => array("user-view"),
         ]);
 
         Menu::create([
             'parent_id' => $user->id,
             'name' => json_encode(['en' => 'Admin']),
-            'path' => 'admin/admin/list',
+            'path' => 'admin/user/admin/list',
             'permission' => array("user-view"),
-            'active' => 'admin/admin/*',
+            'active' => 'admin/user/admin/*',
+        ]);
+
+        Menu::create([
+            'parent_id' => $user->id,
+            'name' => json_encode(['en' => 'Customer']),
+            'path' => 'admin/user/customer/list',
+            'permission' => array("user-view"),
+            'active' => 'admin/user/customer/*',
         ]);
 
         //Setting management
@@ -70,31 +140,25 @@ class MenuSeeder extends Seeder
             'parent_id' => $setting->id,
             'name' => json_encode(['en' => 'About Us']),
             'path' => 'admin/setting/' . 'about-us',
-            'permission' => array("about-us-view"),
+            'permission' => array("setting-view"),
             'active' => 'admin/setting/about-us',
         ]);
         Menu::create([
             'parent_id' => $setting->id,
             'name' => json_encode(['en' => 'Contact Us']),
             'path' => 'admin/setting/' . 'contact-us',
-            'permission' => array("contact-us-view"),
+            'permission' => array("setting-view"),
             'active' => 'admin/setting/contact-us',
         ]);
+
+        // Product Feature
         Menu::create([
             'parent_id' => $setting->id,
-            'name' => json_encode(['en' => 'Privacy Policy']),
-            'icon' => 'file-text',
-            'path' => 'admin/privacy-policy/list',
-            'active' => 'admin/privacy-policy/*',
-            'permission' => array('privacy-policy-view'),
-        ]);
-        Menu::create([
-            'parent_id' => $setting->id,
-            'name' => json_encode(['en' => 'Term and Condition']),
-            'icon' => 'file-text',
-            'path' => 'admin/term-and-condition/list',
-            'active' => 'admin/term-and-condition/*',
-            'permission' => array('term-and-condition-view'),
+            'name' => json_encode(['en' => 'Product Feature']),
+            'icon' => 'shopping-cart',
+            'path' => 'admin/setting/' . 'product-feature',
+            'active' => 'admin/setting/product-feature/*',
+            'permission' => array('product-feature-view'),
         ]);
     }
 }

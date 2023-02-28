@@ -11,9 +11,11 @@ return [
             'text'          => 'Disabled',
         ],
     ],
+    
     'trash' => [
         'text'               => 'Trash Bin'
     ],
+
     'user' => [
         'role' => [
             'user'          => 'user',
@@ -26,5 +28,20 @@ return [
         'contact_us'        => 'contact-us',
         'privacy'           => 'privacy',
         'term_condition'    => 'term-condition',
+    ],
+
+    'order_status' => [
+        'pending'           => 'pending',
+        'confirmed'         => 'confirmed',
+        'completed'         => 'completed',
+        'canceled'          => 'canceled',
+    ],
+
+    'banner' => [
+        'about_us'          => 'about-us',
+        'contact_us'        => 'contact-us',
+        'product'           => 'product',
+        'home'              => 'home',
+        'expert'            => 'expert',
     ],
 ];

@@ -1,0 +1,27 @@
+@section('meta')
+    <meta property="og:title" content="{{ isset($title) ? $title : '' }}" />
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="Admin">
+    <meta property="og:image" content="{{ isset($image) ? $image : asset('images/logo/meta.jpg') }}" />
+    <meta property="og:image:alt" content="@lang('app.title')">
+    <meta property="og:image:width" content="640" />
+    <meta property="og:image:height" content="640" />
+    <meta property="og:site_name" content="@lang('app.title')">
+    <meta name="keywords" content="@lang('app.title')">
+    <meta property="og:description" content="{!! __('app.og_description') !!}">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@lang('app.title')">
+    <meta property="twitter:creator" content="@lang('app.title')">
+    <meta property="twitter:title" content="{{ isset($title) ? $title : '' }}">
+    <meta property="twitter:description" content="{!! __('app.og_description') !!}">
+    <meta property="twitter:image" content="{{ isset($image) ? $image : asset('images/logo/meta.jpg') }}">
+    <meta property="twitter:image:alt" content="@lang('app.title')">
+    <meta property="twitter:image:width" content="640">
+    <meta property="twitter:image:height" content="640">
+    <meta property="twitter:domain" content="{{ url()->current() }}">
+
+    <meta name="description" content="{!! __('app.og_description') !!}">
+    <meta name="keywords" content="@lang('app.title')">
+    <meta name="author" content="@lang('app.title')">
+@endsection

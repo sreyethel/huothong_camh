@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('page');
             $table->longText('content')->nullable();
+            $table->tinyInteger('status')->default(config('dummy.status.active.key'));
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
