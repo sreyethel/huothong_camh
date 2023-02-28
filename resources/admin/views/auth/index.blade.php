@@ -1,4 +1,7 @@
 @extends('admin::index')
+@section('meta')
+    @include('admin::components.meta')
+@stop
 @section('index')
     <div class="login">
         <div class="login-wrapper">

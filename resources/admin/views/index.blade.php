@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@lang('app.title') @yield('title')</title>
-    @include('admin::components.meta')
+    @yield('meta')
     <link rel="shortcut icon" href="{!! asset('images/logo/logo.png') !!}" type="image/x-icon">
     @vite(['resources/admin/sass/app.scss', 'resources/admin/js/app.js'])
     @yield('style')

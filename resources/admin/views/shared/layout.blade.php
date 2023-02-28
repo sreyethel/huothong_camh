@@ -1,6 +1,8 @@
 @extends('admin::index')
+@section('meta')
+    @include('admin::components.meta')
+@stop
 @section('index')
-
     <div class="container">
         <div class="container-wrapper">
             <div class="sidebar">
