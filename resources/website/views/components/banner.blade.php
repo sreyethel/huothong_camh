@@ -7,7 +7,7 @@
                     <p>{{ $content }}</p>
                 @endisset
                 @isset($title)
-                    <h1>{{ $title }}</h1>
+                    <h1>{!! $title !!}</h1>
                 @endisset
             </div>
         </div>

@@ -2,16 +2,24 @@
 
 namespace App\Http\Controllers\Website;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\WebsiteBaseController;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ProductController extends WebsiteBaseController
 {
     protected $layout = 'website::pages.product.';
 
     public function onIndex()
     {
-        return view($this->layout . 'index');
+        try {
+            $data['banner']     = $this->websiteService->getBanner('product');
+            $data['products']   = $this->websiteService->getProduct();
+                        
+            return view($this->layout . 'index', $data);
+
+        } catch (\Exception $e) {
+            return abort(403, $this->abort);
+        }
     }
 
     public function onDetail($slug)

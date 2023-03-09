@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Database\Eloquent\Collection;
+
 function customUrl($url, $queryParam)
 {
     $pattern = "/\?/i";
@@ -43,5 +45,41 @@ if (!function_exists('json')) {
             return json_encode($arg);
         }
         return json_decode($arg);
+    }
+}
+
+if (!function_exists('toObject')) {
+    function toObject($data)
+    {
+        if ($data instanceof \Illuminate\Database\Eloquent\Model) {
+            $data = $data->toArray();
+        }
+        if (is_string($data)) {
+            $data = json_decode($data);
+        }
+        if($data instanceof Collection){
+            $data = $data->toArray();
+        }
+        if(is_object($data)){
+            $data = (array)$data;
+        }
+        if (is_array($data)) {
+            $object = new stdClass();
+            foreach ($data as $key => $value) {
+                if (is_string($value)) {
+                    $string = json_decode($value);
+                    if (is_object($string) || is_array($string)) {
+                        $value = $string;
+                    }
+                }
+                if (is_array($value)) {
+                    $object->$key = toObject($value);
+                } else {
+                    $object->$key = $value;
+                }
+            }
+            return $object;
+        }
+        return $data;
     }
 }

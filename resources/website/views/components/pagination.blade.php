@@ -1,4 +1,4 @@
-<div class="pagination" @isset($margin) style="margin-top: {{ $margin }}px" @endisset>
+<div class="pagination {{ isset($class) ? $class : '' }}">
     <div class="pagination-right">
         <div class="pagination-wrapper">
             <div class="pagination-item left {!! $paginate->currentPage() == 1 ? 'disabled' : '' !!}" page-link="{!! customUrl($paginate->previousPageUrl(), request()->all()) !!}">
