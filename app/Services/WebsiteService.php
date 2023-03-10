@@ -3,8 +3,11 @@
 namespace App\Services;
 
 use App\Models\Banner;
+use App\Models\Expert;
 use App\Models\Favourite;
+use App\Models\Feature;
 use App\Models\Page;
+use App\Models\Partner;
 use App\Models\Product;
 
 class WebsiteService
@@ -24,9 +27,7 @@ class WebsiteService
 
     public function getProduct($perPage = null)
     {
-        $product = Product::query();
-
-        return $this->service->collectionGet($product, $this->active, "id:desc")
+        return $this->service->collectionGet(Product::query(), $this->active, "id:desc")
                 ->when(request()->has('search'), function ($query) {
                     $query->where('name', 'like', '%' . request('search') . '%');
                 })
@@ -94,5 +95,23 @@ class WebsiteService
                     ->whereIsFavorite($this->active)
                     ->pluck('product_id')
                     ->toArray();
+    }
+
+    public function getExpert()
+    {
+        return $this->service->collectionGet(Expert::query(), $this->active, "id:desc")
+                ->get();
+    }
+
+    public function getPartner()
+    {
+        return $this->service->collectionGet(Partner::query(), $this->active, "id:desc")
+                ->get();
+    }
+    
+    public function getFeature()
+    {
+        return $this->service->collectionGet(Feature::query(), $this->active, "id:desc")
+                ->get();
     }
 }

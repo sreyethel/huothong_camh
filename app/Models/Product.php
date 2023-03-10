@@ -21,7 +21,9 @@ class Product extends Model
         'feature',
         'status',
     ];
-
+    // protected $casts = [
+    //     'feature' => ' array',
+    // ];
     protected $appends = ['thumbnail_url'];
 
     public function getThumbnailUrlAttribute()
