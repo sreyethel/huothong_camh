@@ -27,8 +27,12 @@ class ProductController extends WebsiteBaseController
     public function onDetail($slug)
     {
         try {
-            $data['details'] = $this->websiteService->detailProduct($slug);
+            $data['detail'] = $this->websiteService->detailProduct($slug);
             $data['products']   = $this->websiteService->getProduct(6);
+            $data['recently_products']   = $this->websiteService->getRecentlyAdded($data['detail']['id']);
+            $data['related_products']   = $this->websiteService->getRelatedProduct($data['detail']['id']);
+            
+            // ddd($data['details']['id']);
 
             return view($this->layout . 'detail', $data);
 

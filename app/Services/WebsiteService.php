@@ -39,14 +39,21 @@ class WebsiteService
         return $this->service->collectionFirst(Product::query(), $this->active,"slug:$slug");
     }
 
+    public function getRecentlyAdded($id)
+    {
+        return $this->service->collectionGet(Product::query(), $this->active, "id:desc")
+        ->whereNotIn('id', [$id])
+        ->limit(6)
+        ->get();
+    }
     public function getRelatedProduct($id)
     {
         return $this->service->collectionGet(Product::query(), $this->active, "id:desc")
                 ->whereNotIn('id', [$id])
-                ->limit(12)
+                ->limit(6)
                 ->get();
     }
-
+    
     public function getPage($page)
     {
         return $this->service->collectionFirst(Page::query(), $this->active,"page:$page");
@@ -109,9 +116,9 @@ class WebsiteService
                 ->get();
     }
     
-    public function getFeature()
-    {
-        return $this->service->collectionGet(Feature::query(), $this->active, "id:desc")
-                ->get();
-    }
+    // public function getFeature()
+    // {
+    //     return $this->service->collectionGet(Feature::query(), $this->active, "id:desc")
+    //             ->get();
+    // }
 }

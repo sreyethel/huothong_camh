@@ -31,4 +31,9 @@ class Product extends Model
         if ($this->thumbnail) return asset('file_manager' . $this->thumbnail);
         return asset('images/logo/no.jpg');
     }
+
+    public function getFeatures()
+    {
+        return $this->hasOne('App\Models\Feature');
+    }
 }

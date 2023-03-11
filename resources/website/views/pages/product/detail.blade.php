@@ -6,13 +6,13 @@
     <div class="single-property">
         <div class="single-property-content">
             <div class="image">
-                <img src="{{ $details->thumbnail_url }}" alt="">
+                <img src="{{ $detail->thumbnail_url }}" alt="">
             </div>
             <div class="title">
                 <div class="container">
                     <div class="title-content flex items-center justify-between bg-white shadow-border p-10 rounded-md">
                         <div class="left-single">
-                            <h2 class="mb-0">{{ $details?->title }}</h2>
+                            <h2 class="mb-0">{{ $detail?->title }}</h2>
                             <div class="grid gap-5 grid-flow-col auto-cols-max pt-6">
                                 <button class="btn-share shadow-border">
                                     <i class="far fa-share-square"></i>
@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="right-single w-auto">
-                            <h2 class="price">${{ number_format($details?->price, 2) }}</h2>
+                            <h2 class="price">${{ number_format($detail?->price, 2) }}</h2>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide" data-fancyBox="gallery"
                                     data-src="https://themes.pixelstrap.com/sheltos/assets/images/property/4.jpg">
-                                    <img src="{{ $details->thumbnail_url }}" alt="" />
+                                    <img src="{{ $detail->thumbnail_url }}" alt="" />
                                 </div>
                                 <div class="swiper-slide" data-fancyBox="gallery"
                                     data-src="https://themes.pixelstrap.com/sheltos/assets/images/property/2.jpg">
@@ -143,8 +143,8 @@
                         <div class="swiper swiper-top">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide" data-fancyBox="gallery"
-                                    data-src="{{ $details?->thumbnail_url }}">
-                                    <img src="{{ $details?->thumbnail_url }}" alt="" />
+                                    data-src="{{ $detail?->thumbnail_url }}">
+                                    <img src="{{ $detail?->thumbnail_url }}" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                         <div class="column bg-white p-5 rounded-md">
                             <h2>Property Details</h2>
                             <p>
-                                {!! strip_tags($details?->content) !!}
+                                {!! strip_tags($detail?->content) !!}
                             </p>
                             <!--
                                     <div class="grid grid-cols-3 gap-5 pt-10">
@@ -227,7 +227,7 @@
                     <div class="property-list">
                         <h3>Recently Added</h3>
                         <div class="grid gap-5 mt-7">
-                            @foreach ($products as $item)
+                            @foreach ($recently_products as $item)
                                 <div class="list">
                                     <div class="image">
                                         <img src="{{ $item->thumbnail_url }}" alt="" />
@@ -248,7 +248,7 @@
     </div>
 
     <!-- relative property -->
-    @if (isset($products) && count($products) > 0)
+    @if (isset($related_products) && count($related_products) > 0)
         <div class="sale-section">
             <div class="sale-section-wrapper container">
                 <div class="sale-section-wrapper-label">
@@ -259,7 +259,7 @@
                     </a>
                 </div>
                 <div class="grid grid-cols-3 gap-6 mt-10">
-                    @foreach ($products as $item)
+                    @foreach ($related_products as $item)
                         <div class="bg-white product-box shadow-lg">
                             <div class="product-box-image">
                                 <img src="{{ $item->thumbnail_url }}" alt="">
