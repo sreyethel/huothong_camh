@@ -30,8 +30,15 @@
                         <div class="bg-white product-box shadow-lg">
                             <div class="product-box-image">
                                 <img src="{{ $item?->thumbnail_url }}" alt="">
-                                <div class="product-box-image-icon">
-                                    <a href="#" title="favorite"><i class="h-5 w-5" data-feather="heart"></i></a>
+                                <div class="product-box-image-icon" x-data="favorite" data-id="{{ $item?->id }}"
+                                    @auth('web')
+                                        @click="onAddFavorite('{{ $item?->id }}')"
+                                    @else
+                                        href="{{ route('website-auth-sign-in') }}"
+                                    @endauth>
+                                    <i x-show="adding == false" class="false" data-feather="heart"></i>
+                                    <i x-show="adding == false" class="fas fa-heart true"></i>
+                                    <i x-show="adding == true" class="fas fa-spinner fa-spin"></i>
                                 </div>
                             </div>
                             <div class="product-box-content p-8">

@@ -27,7 +27,7 @@ class SignUpRequest extends FormRequest
         return [
             'name'                      => 'required',
             'username'                  => 'required|unique:users,username,' . $id,
-            'email'                     => $this->email ? 'string|email|unique:users,email,'. $id : '',
+            'email'                     => $id ? 'required|string|email|unique:users,email,'. $id : '',
             'phone'                     => $this->phone ? 'required|unique:users,phone,'. $id : '',
             'verification_code'         => $id ? 'nullable' : 'required|numeric|digits:6',
             'password'                  => $id ? 'nullable' : 'required|string|max:125',

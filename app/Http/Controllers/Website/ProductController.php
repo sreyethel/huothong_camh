@@ -41,4 +41,45 @@ class ProductController extends WebsiteBaseController
         }
         
     }
+
+    public function onFavorite()
+    {
+        try {
+            $data = $this->websiteService->getFavoriteProduct();
+            return response()->json($data);
+
+        } catch (\Exception $e) {
+            return response($e->getMessage());
+        }
+    }
+
+    public function onFavoriteStore()
+    {
+        try {
+            $data = $this->websiteService->storeFavoriteProduct(request('id'));
+            return response()->json($data);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Something went wrong',
+            ]);;
+        }
+    }
+
+    public function onOrderStore(Request $request)
+    {
+        try {
+            $data = $this->websiteService->cartStore($request);
+
+            return response()->json($data);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'error' => true,
+                'message' => $e->getMessage(),
+            ]);
+        }
+    }
 }

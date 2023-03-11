@@ -22,7 +22,7 @@ $(document).ready(function () {
     scrollTop();
     lazyLoad();
     isSticky();
-    clickEvent();
+    signOut();
 });
 
 function isSticky() {
@@ -51,28 +51,32 @@ function lazyLoad() {
     });
 }
 
-function clickEvent() {
-    $('body').on('click', '[page-link]', function () {
-        location.href = $(this).attr('page-link');
-    });
-
-    $('body').on('click', '[open-link]', function () {
-        window.open($(this).attr('open-link'));
-    });
-}
-
-// Image preview
-function readURL(input) {
+window.$readURL = function (input, callback) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
+
         reader.onload = function (e) {
-            $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
-            $('#imagePreview').hide();
-            $('#imagePreview').fadeIn(650);
-        }
-        reader.readAsDataURL(input.files[0]);
+            callback(e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]); // convert to base64 string
     }
+};
+
+function signOut() {
+    $('.btn-sign-out').click(function () {
+        Swal.fire({
+            'icon': 'question',
+            title: 'Are you sure to sign out?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sign Out',
+            cancelButtonText: 'Cancel',
+            showLoaderOnConfirm: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = $(this).attr('data-url');
+            }
+        })
+    });
 }
-$("#imageUpload").change(function () {
-    readURL(this);
-});

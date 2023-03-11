@@ -80,15 +80,21 @@
                         <i data-feather="arrow-right"></i>
                     </a>
                 </div>
-                {{-- {{ ddd($products) }} --}}
                 <div class="grid grid-cols-3 gap-6 mt-10">
                     @foreach ($products as $item)
                         <div class="bg-white product-box shadow-lg">
                             <div class="product-box-image">
                                 <img src="{{ $item->thumbnail_url }}" alt="">
-                                <div class="product-box-image-icon">
-                                    <a href="#" title="favorite"><i class="h-5 w-5" data-feather="heart"></i></a>
-                                </div>
+                                <a class="product-box-image-icon" x-data="favorite" data-id="{{ $item?->id }}"
+                                    @auth('web')
+                                        @click="onAddFavorite('{{ $item?->id }}')"
+                                    @else
+                                        href="{{ route('website-auth-sign-in') }}"
+                                    @endauth>
+                                    <i x-show="adding == false" class="false" data-feather="heart"></i>
+                                    <i x-show="adding == false" class="fas fa-heart true"></i>
+                                    <i x-show="adding == true" class="fas fa-spinner fa-spin"></i>
+                                </a>
                             </div>
                             <div class="product-box-content p-8">
                                 <h1 class="text-xl font-semibold ">{{ $item?->title }}</h1>
@@ -134,7 +140,7 @@
             </div>
         </div>
     @endif
-    
+
     <!-- partner section -->
     @if (count($partner) > 0)
         <div class="partner-content">

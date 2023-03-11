@@ -1,0 +1,58 @@
+.swal2-styled {
+    @include font;
+    height                     : 37px;
+    display                    : flex;
+    align-items                : center;
+    justify-content            : center;
+    border                     : none !important;
+    padding                    : 0 1.1em !important;
+    box-shadow                 : unset !important;
+    -webkit-tap-highlight-color: unset !important;
+
+    &:focus {
+        outline: unset !important;
+    }
+}
+
+.swal2-title {
+    @include fontBold(0);
+    @include font;
+    font-size: 1.3rem !important;
+}
+
+.swal2-popup {
+    width        : 350px !important;
+    padding      : 1.25em !important;
+    border-radius: 20px !important;
+}
+
+.swal2-icon {
+    margin: 0.7em auto 0.6em !important;
+}
+
+.swal2-close {
+    display: none !important;
+}
+
+.swal2-cancel {
+    color     : #ad0202 !important;
+    background: unset !important;
+}
+
+.swal2-confirm {
+    background: unset !important;
+    color     : $primary !important;
+}
+
+.swal2-deny {
+    background: unset !important;
+    color     : $secondary !important;
+}
+
+.swal2-container.swal2-backdrop-show,
+.swal2-container.swal2-noanimation {
+    background     : rgb(0 0 0 / 44%) !important;
+    box-shadow     : 0 4px 30px rgb(0 0 0 / 10%);
+    backdrop-filter: blur(5px);
+    z-index        : 999999;
+}

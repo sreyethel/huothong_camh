@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 class WebsiteBaseController extends BaseController
 {
-    public $abort, $websiteService, $user, $about,$contact;
+    public $abort, $websiteService, $user, $about,$contact, $totalCart;
     public function __construct()
     {
         try {
