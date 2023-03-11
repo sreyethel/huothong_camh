@@ -3,8 +3,11 @@
 namespace App\Services;
 
 use App\Models\Banner;
+use App\Models\Expert;
 use App\Models\Favourite;
+use App\Models\Feature;
 use App\Models\Page;
+use App\Models\Partner;
 use App\Models\Product;
 
 class WebsiteService
@@ -24,9 +27,7 @@ class WebsiteService
 
     public function getProduct($perPage = null)
     {
-        $product = Product::query();
-
-        return $this->service->collectionGet($product, $this->active, "id:desc")
+        return $this->service->collectionGet(Product::query(), $this->active, "id:desc")
                 ->when(request()->has('search'), function ($query) {
                     $query->where('name', 'like', '%' . request('search') . '%');
                 })
@@ -38,14 +39,21 @@ class WebsiteService
         return $this->service->collectionFirst(Product::query(), $this->active,"slug:$slug");
     }
 
+    public function getRecentlyAdded($id)
+    {
+        return $this->service->collectionGet(Product::query(), $this->active, "id:desc")
+        ->whereNotIn('id', [$id])
+        ->limit(6)
+        ->get();
+    }
     public function getRelatedProduct($id)
     {
         return $this->service->collectionGet(Product::query(), $this->active, "id:desc")
                 ->whereNotIn('id', [$id])
-                ->limit(12)
+                ->limit(6)
                 ->get();
     }
-
+    
     public function getPage($page)
     {
         return $this->service->collectionFirst(Page::query(), $this->active,"page:$page");
@@ -95,4 +103,22 @@ class WebsiteService
                     ->pluck('product_id')
                     ->toArray();
     }
+
+    public function getExpert()
+    {
+        return $this->service->collectionGet(Expert::query(), $this->active, "id:desc")
+                ->get();
+    }
+
+    public function getPartner()
+    {
+        return $this->service->collectionGet(Partner::query(), $this->active, "id:desc")
+                ->get();
+    }
+    
+    // public function getFeature()
+    // {
+    //     return $this->service->collectionGet(Feature::query(), $this->active, "id:desc")
+    //             ->get();
+    // }
 }
