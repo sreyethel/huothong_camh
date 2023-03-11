@@ -1,0 +1,248 @@
+$border-radius: 10px;
+$bg-svg       : #6d11bb;
+
+.auth {
+    width : 100%;
+    height: 100%;
+
+    .bg-svg {
+        height          : 100px;
+        background-color: $bg-svg;
+    }
+
+    .back-home {
+        position        : absolute;
+        left            : 20px;
+        top             : 20px;
+        background-color: unset;
+        box-shadow      : none;
+        font-size       : 1.2rem;
+        color           : white !important;
+    }
+
+    &-content {
+        position  : absolute;
+        top       : 50%;
+        left      : 50%;
+        width     : 400px;
+        max-height: 100%;
+        transform : translate(-50%, -50%);
+        padding   : 20px 0;
+
+        &.sign-up {
+            width: 600px;
+
+            .auth-wrapper {
+                padding: 50px;
+            }
+        }
+    }
+
+    &-wrapper {
+        margin          : auto;
+        background-color: white;
+        border-radius   : 25px;
+        padding         : 20px 50px;
+        box-shadow      : rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+        .logo {
+            width         : 150px;
+            margin        : auto;
+            padding-bottom: 30px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+
+        h1 {
+            @include fontBold(0);
+            text-align: center;
+
+            strong {
+                font-weight: unset;
+                color      : $primary;
+                font-family: $label-font;
+            }
+        }
+
+        .form,
+        form {
+
+            .row {
+                display              : grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap                  : 20px;
+                margin               : 20px 0;
+
+                &.row-pass-confirm {
+                    display: none;
+                }
+
+                .form-row {
+                    position: relative;
+
+                    label {
+                        font-size  : 16px;
+                        color      : #5a5e66;
+                        padding    : 0 12px 0 0;
+                        box-sizing : border-box;
+                        line-height: 3;
+                        font-size  : 0.9rem;
+                        display    : flex;
+                        align-items: center;
+
+                        svg {
+                            height      : 20px;
+                            width       : 20px;
+                            margin-right: 5px;
+                        }
+                    }
+
+                    input {
+                        transition   : all .5s;
+                        font-size    : 14px;
+                        padding      : 0 15px;
+                        width        : 100%;
+                        height       : 45px;
+                        box-sizing   : border-box;
+                        border-radius: $border-radius;
+                        border       : none;
+                        outline      : none;
+                        font-size    : 0.8rem;
+                        box-shadow   : rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+                        &.error-input {
+                            border: 1px solid #fa5555;
+                        }
+                    }
+
+                    .btn-request-otp {
+                        position        : absolute;
+                        right           : 3px;
+                        top             : 50%;
+                        transform       : translateY(-50%);
+                        height          : 40px;
+                        width           : 80px;
+                        border          : none;
+                        outline         : none;
+                        cursor          : pointer;
+                        color           : $bg-svg;
+                        background-color: #e0dde2;
+                        border-radius   : $border-radius;
+                        font-size       : 0.8rem;
+                    }
+
+                    .error-require {
+                        color    : #fa5555;
+                        font-size: 0.8rem;
+
+                        svg {
+                            height: 15px;
+                        }
+
+                        .user-phone {
+                            @include fontBold(0.5px);
+                            color        : $primary;
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    .verify-otp {
+                        .success {
+                            display    : flex;
+                            align-items: center;
+                            color      : $success;
+                            font-weight: unset;
+                            margin     : 5px 0;
+                            font-size  : 10px;
+
+                            i {
+                                margin-right: 5px;
+                            }
+
+                            p {
+                                @include fontBold(0);
+                                margin         : 0;
+                                color          : $success;
+                                cursor         : unset;
+                                text-decoration: unset;
+                            }
+                        }
+                    }
+
+                    &-item {
+                        cursor  : pointer;
+                        position: absolute;
+                        right   : 15px;
+                        top     : 58px;
+
+                        span {
+                            display    : grid;
+                            place-items: center;
+
+                            svg {
+                                width : 15px;
+                                height: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            p {
+                width          : fit-content;
+                text-decoration: underline;
+                cursor         : pointer;
+            }
+
+            .form-submit {
+                width: 100%;
+
+                button {
+                    border-radius   : $border-radius;
+                    font-size       : 1rem;
+                    margin          : auto;
+                    display         : flex;
+                    align-items     : center;
+                    padding         : 10px 20px;
+                    text-transform  : unset;
+                    background-color: $bg-svg !important;
+                    color           : $white;
+
+                    svg {
+                        height      : 20px;
+                        width       : 20px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            .not-yet-register {
+                text-align     : center;
+                margin-top     : 20px;
+                display        : flex;
+                align-items    : center;
+                justify-content: center;
+
+                span {
+                    padding-right: 10px;
+                }
+
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+// screen 600px
+@media screen and (max-width: 600px) {
+    .auth {
+        .bg-svg {
+            height: 200px;
+        }
+    }
+}

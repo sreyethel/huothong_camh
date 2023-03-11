@@ -101,12 +101,14 @@ class User extends Authenticatable
     {
         return 'remember_token';
     }
-    public function departments()
-    {
-        return $this->belongsToMany(Department::class, 'company_departments', 'company_id', 'department_id');
-    }
+
     public function ModelHasPermission()
     {
         return $this->hasMany(ModelHasPermission::class, 'model_id');
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class, 'user_id');
     }
 }

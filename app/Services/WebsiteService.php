@@ -3,8 +3,9 @@
 namespace App\Services;
 
 use App\Models\Banner;
+use App\Models\Cart;
 use App\Models\Expert;
-use App\Models\Favourite;
+use App\Models\Favorite;
 use App\Models\Feature;
 use App\Models\Page;
 use App\Models\Partner;
@@ -58,7 +59,7 @@ class WebsiteService
         $status  = 'success';
         $type    = 'add';
 
-        $favorite = Favourite::query()
+        $favorite = Favorite::query()
                     ->whereProductId($id)
                     ->whereUserId(auth('web')->user()->id)
                     ->first();
@@ -74,7 +75,7 @@ class WebsiteService
                 'is_favorite' => $favorite->is_favorite == $this->active ? $this->inactive : $this->active,
             ]);
         }else{
-            Favourite::create([
+            Favorite::create([
                 'product_id' => $id,
                 'user_id'   => auth('web')->user()->id,
                 'is_favorite' => $this->active,
@@ -90,11 +91,41 @@ class WebsiteService
 
     public function getFavoriteProduct()
     {
-        return Favourite::query()
+        return Favorite::query()
                     ->whereUserId(auth('web')->user()->id)
                     ->whereIsFavorite($this->active)
                     ->pluck('product_id')
                     ->toArray();
+    }
+
+    public function cartStore($request)
+    {
+        $cart = Cart::query()
+                ->whereUserId(auth('web')->user()->id)
+                ->whereProductId($request->product_id)
+                ->first();
+
+        $items = [
+            'user_id' => auth('web')->user()->id,
+            'product_id' => $request->product_id,
+            'quantity' => 1,
+            'status' => $this->active,
+        ];
+
+        $message = 'Product added to cart';
+        $status  = 'success';
+        if ($cart) {
+            $message = 'This product already added to cart';
+            $status  = 'warning';
+        }else{
+            Cart::create($items);
+        }
+
+        return [
+            'message' => $message,
+            'status'  => 'success',
+            'error'   => false,
+        ];
     }
 
     public function getExpert()

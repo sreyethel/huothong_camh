@@ -24,8 +24,7 @@ class SignInRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone'     => request('method') == 'phone' ? 'required' : '',
-            'email'     => request('method') == 'email' ? 'required' : '',
+            'user'      => 'required',
             'password'  => 'required',
         ];
     }
@@ -39,8 +38,7 @@ class SignInRequest extends FormRequest
     public function messages()
     {
         return [
-            'phone.required'        => __('website.form.placeholder.phone'),
-            'email.required'        => __('website.form.placeholder.email'),
+            'user.required'         => __('website.form.placeholder.user_or_phone'),
             'password.required'     => __('website.form.placeholder.password'),
         ];
     }
