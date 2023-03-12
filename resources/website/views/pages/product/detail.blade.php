@@ -18,10 +18,22 @@
                                     <i class="far fa-share-square"></i>
                                     share
                                 </button>
-                                <button class="button shadow-border">
+                                {{-- <button class="button shadow-border">
                                     <i class="far fa-heart"></i>
                                     Save
-                                </button>
+                                </button> --}}
+                                <a class="button shadow-border flex items-center cursor-pointer favorite"
+                                    x-data="favorite" data-id="{{ $detail?->id }}"
+                                    @auth('web')
+                                        @click="onAddFavorite('{{ $detail?->id }}')"
+                                    @else
+                                        href="{{ route('website-auth-sign-in') }}"
+                                    @endauth>
+                                    <i x-show="adding == false" class="h-5 w-5 mr-2 false" data-feather="heart"></i>
+                                    <i x-show="adding == false" class=" fas fa-heart true"></i>
+                                    <i x-show="adding == true" class=" fas fa-spinner fa-spin"></i>
+                                    Save
+                                </a>
                                 <a class="button shadow-border flex items-center cursor-pointer"
                                     @auth('web')
                                         @click="$store.orderDialog.open()"
@@ -42,7 +54,7 @@
         </div>
 
         <!-- include order component -->
-        @include('website::components.order', ['data' => $details])
+        @include('website::components.order', ['data' => $detail])
     </div>
 
     <div class="detail-property">
@@ -166,45 +178,45 @@
                                 {!! strip_tags($detail?->content) !!}
                             </p>
                             <!--
-                                                            <div class="grid grid-cols-3 gap-5 pt-10">
-                                                                <div class="item flex items-center">
-                                                                    <h4 class="font-bold pr-3">Property Type :</h4>
-                                                                    <p>House</p>
-                                                                </div>
-                                                                <div class="item flex items-center">
-                                                                    <h4 class="font-bold pr-3">Property ID :</h4>
-                                                                    <p>123456</p>
-                                                                </div>
-                                                                <div class="item flex items-center">
-                                                                    <h4 class="font-bold pr-3">Price :</h4>
-                                                                    <p>$ 12,000</p>
-                                                                </div>
-                                                                <div class="item flex items-center">
-                                                                    <h4 class="font-bold pr-3">Bedrooms :</h4>
-                                                                    <p>3</p>
-                                                                </div>
-                                                                <div class="item flex items-center">
-                                                                    <h4 class="font-bold pr-3">Bathrooms :</h4>
-                                                                    <p>2</p>
-                                                                </div>
-                                                                <div class="item flex items-center">
-                                                                    <h4 class="font-bold pr-3">Area :</h4>
-                                                                    <p>1200 Sq Ft</p>
-                                                                </div>
-                                                                <div class="item flex items-center">
-                                                                    <h4 class="font-bold pr-3">Garage :</h4>
-                                                                    <p>1</p>
-                                                                </div>
-                                                                <div class="item flex items-center">
-                                                                    <h4 class="font-bold pr-3">Year Built :</h4>
-                                                                    <p>2019</p>
-                                                                </div>
-                                                                <div class="item flex items-center">
-                                                                    <h4 class="font-bold pr-3">Property Status :</h4>
-                                                                    <p>For Sale</p>
-                                                                </div>
-                                                            </div>
-                                                            -->
+                                                                            <div class="grid grid-cols-3 gap-5 pt-10">
+                                                                                <div class="item flex items-center">
+                                                                                    <h4 class="font-bold pr-3">Property Type :</h4>
+                                                                                    <p>House</p>
+                                                                                </div>
+                                                                                <div class="item flex items-center">
+                                                                                    <h4 class="font-bold pr-3">Property ID :</h4>
+                                                                                    <p>123456</p>
+                                                                                </div>
+                                                                                <div class="item flex items-center">
+                                                                                    <h4 class="font-bold pr-3">Price :</h4>
+                                                                                    <p>$ 12,000</p>
+                                                                                </div>
+                                                                                <div class="item flex items-center">
+                                                                                    <h4 class="font-bold pr-3">Bedrooms :</h4>
+                                                                                    <p>3</p>
+                                                                                </div>
+                                                                                <div class="item flex items-center">
+                                                                                    <h4 class="font-bold pr-3">Bathrooms :</h4>
+                                                                                    <p>2</p>
+                                                                                </div>
+                                                                                <div class="item flex items-center">
+                                                                                    <h4 class="font-bold pr-3">Area :</h4>
+                                                                                    <p>1200 Sq Ft</p>
+                                                                                </div>
+                                                                                <div class="item flex items-center">
+                                                                                    <h4 class="font-bold pr-3">Garage :</h4>
+                                                                                    <p>1</p>
+                                                                                </div>
+                                                                                <div class="item flex items-center">
+                                                                                    <h4 class="font-bold pr-3">Year Built :</h4>
+                                                                                    <p>2019</p>
+                                                                                </div>
+                                                                                <div class="item flex items-center">
+                                                                                    <h4 class="font-bold pr-3">Property Status :</h4>
+                                                                                    <p>For Sale</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            -->
                         </div>
                         @if (isset($features))
                             <div class="column bg-white p-5 rounded-md">
@@ -270,9 +282,16 @@
                         <div class="bg-white product-box shadow-lg">
                             <div class="product-box-image">
                                 <img src="{{ $item->thumbnail_url }}" alt="">
-                                <div class="product-box-image-icon">
-                                    <a href="#" title="favorite"><i class="h-5 w-5" data-feather="heart"></i></a>
-                                </div>
+                                <a class="product-box-image-icon" x-data="favorite" data-id="{{ $item?->id }}"
+                                    @auth('web')
+                                        @click="onAddFavorite('{{ $item?->id }}')"
+                                    @else
+                                        href="{{ route('website-auth-sign-in') }}"
+                                    @endauth>
+                                    <i x-show="adding == false" class="false" data-feather="heart"></i>
+                                    <i x-show="adding == false" class="fas fa-heart true"></i>
+                                    <i x-show="adding == true" class="fas fa-spinner fa-spin"></i>
+                                </a>
                             </div>
                             <div class="product-box-content p-8">
                                 <h1 class="text-xl font-semibold ">{{ $item?->title }}</h1>

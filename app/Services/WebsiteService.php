@@ -69,7 +69,7 @@ class WebsiteService
 
     public function storeFavoriteProduct($id)
     {
-        $message = 'Added to wishlist';
+        $message = 'Added to favorite';
         $status  = 'success';
         $type    = 'add';
 
@@ -80,7 +80,7 @@ class WebsiteService
 
         if ($favorite) {
             if ($favorite->is_favorite == $this->active) {
-                $message = 'Removed from wishlist';
+                $message = 'Removed from favorite';
                 $status = 'success';
                 $type = 'remove';
             }
