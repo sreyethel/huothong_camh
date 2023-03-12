@@ -3,7 +3,7 @@
     'title' => 'Product',
 ])
 @section('content')
-    <div class="single-property" x-data="order">
+    <div class="single-property" x-data="{}">
         <div class="single-property-content">
             <div class="image">
                 <img src="{{ $detail->thumbnail_url }}" alt="">
@@ -18,10 +18,6 @@
                                     <i class="far fa-share-square"></i>
                                     share
                                 </button>
-                                {{-- <button class="button shadow-border">
-                                    <i class="far fa-heart"></i>
-                                    Save
-                                </button> --}}
                                 <a class="button shadow-border flex items-center cursor-pointer favorite"
                                     x-data="favorite" data-id="{{ $detail?->id }}"
                                     @auth('web')
@@ -61,95 +57,25 @@
         <div class="container">
             <div class="section-aside">
                 <section>
-                    @if (isset($products->galllery) && $products->gallery > 0)
+                    @if (count(json_decode($detail->gallery)) > 0)
                         <div class="swiper swiper-top">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide" data-fancyBox="gallery"
-                                    data-src="https://themes.pixelstrap.com/sheltos/assets/images/property/4.jpg">
-                                    <img src="{{ $detail->thumbnail_url }}" alt="" />
-                                </div>
-                                <div class="swiper-slide" data-fancyBox="gallery"
-                                    data-src="https://themes.pixelstrap.com/sheltos/assets/images/property/2.jpg">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/2.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide" data-fancyBox="gallery"
-                                    data-src="https://themes.pixelstrap.com/sheltos/assets/images/property/3.jpg">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/3.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide" data-fancyBox="gallery"
-                                    data-src="https://themes.pixelstrap.com/sheltos/assets/images/property/14.jpg">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/14.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide" data-fancyBox="gallery"
-                                    data-src="https://themes.pixelstrap.com/sheltos/assets/images/property/11.jpg">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/11.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide" data-fancyBox="gallery"
-                                    data-src="https://themes.pixelstrap.com/sheltos/assets/images/property/14.jpg">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/14.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide" data-fancyBox="gallery"
-                                    data-src="https://themes.pixelstrap.com/sheltos/assets/images/property/4.jpg">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/4.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide" data-fancyBox="gallery"
-                                    data-src="https://themes.pixelstrap.com/sheltos/assets/images/property/3.jpg">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/3.jpg"
-                                        alt="" />
+                                @foreach (json_decode($detail->gallery) as $item)
                                     <div class="swiper-slide" data-fancyBox="gallery"
-                                        data-src="https://themes.pixelstrap.com/sheltos/assets/images/property/11.jpg">
-                                        <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/11.jpg"
-                                            alt="" />
+                                        data-src="{{ asset('file_manager' . $item) }}">
+                                        <img src="{{ asset('file_manager' . $item) }}" alt="" />
                                     </div>
-                                </div>
-
+                                @endforeach
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>
                         <div class="swiper gallery-thumbs">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/4.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/2.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/3.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/14.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/14.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/11.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/14.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/2.jpg"
-                                        alt="" />
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="https://themes.pixelstrap.com/sheltos/assets/images/property/14.jpg"
-                                        alt="" />
-                                </div>
+                                @foreach (json_decode($detail->gallery) as $item)
+                                    <div class="swiper-slide">
+                                        <img src="{{ asset('file_manager' . $item) }}" alt="" />
+                                    </div>
+                                @endforeach
                             </div>
                             <div class="swiper-button-next">
                                 <i class="fa-solid fa-angle-right"></i>
@@ -159,17 +85,8 @@
                             </div>
                         </div>
                     @else
-                        <div class="swiper swiper-top">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide" data-fancyBox="gallery"
-                                    data-src="{{ $detail?->thumbnail_url }}">
-                                    <img src="{{ $detail?->thumbnail_url }}" alt="" />
-                                </div>
-                            </div>
-                        </div>
+                        <img class="w-full rounded-lg" src="{{ $detail?->thumbnail_url }}" alt="" />
                     @endif
-                    {{-- <h1>{{ ddd($products) }}</h1> --}}
-
 
                     <div class="grid gap-7 mt-5">
                         <div class="column bg-white p-5 rounded-md">
@@ -177,48 +94,8 @@
                             <p>
                                 {!! strip_tags($detail?->content) !!}
                             </p>
-                            <!--
-                                                                            <div class="grid grid-cols-3 gap-5 pt-10">
-                                                                                <div class="item flex items-center">
-                                                                                    <h4 class="font-bold pr-3">Property Type :</h4>
-                                                                                    <p>House</p>
-                                                                                </div>
-                                                                                <div class="item flex items-center">
-                                                                                    <h4 class="font-bold pr-3">Property ID :</h4>
-                                                                                    <p>123456</p>
-                                                                                </div>
-                                                                                <div class="item flex items-center">
-                                                                                    <h4 class="font-bold pr-3">Price :</h4>
-                                                                                    <p>$ 12,000</p>
-                                                                                </div>
-                                                                                <div class="item flex items-center">
-                                                                                    <h4 class="font-bold pr-3">Bedrooms :</h4>
-                                                                                    <p>3</p>
-                                                                                </div>
-                                                                                <div class="item flex items-center">
-                                                                                    <h4 class="font-bold pr-3">Bathrooms :</h4>
-                                                                                    <p>2</p>
-                                                                                </div>
-                                                                                <div class="item flex items-center">
-                                                                                    <h4 class="font-bold pr-3">Area :</h4>
-                                                                                    <p>1200 Sq Ft</p>
-                                                                                </div>
-                                                                                <div class="item flex items-center">
-                                                                                    <h4 class="font-bold pr-3">Garage :</h4>
-                                                                                    <p>1</p>
-                                                                                </div>
-                                                                                <div class="item flex items-center">
-                                                                                    <h4 class="font-bold pr-3">Year Built :</h4>
-                                                                                    <p>2019</p>
-                                                                                </div>
-                                                                                <div class="item flex items-center">
-                                                                                    <h4 class="font-bold pr-3">Property Status :</h4>
-                                                                                    <p>For Sale</p>
-                                                                                </div>
-                                                                            </div>
-                                                                            -->
                         </div>
-                        @if (isset($features))
+                        @if (isset($features) && count($features) > 0)
                             <div class="column bg-white p-5 rounded-md">
                                 <h2>Property Features</h2>
                                 <div class="grid grid-cols-3 gap-5">
@@ -231,15 +108,12 @@
                                 </div>
                             </div>
                         @endif
-                        <div class="column bg-white p-5 rounded-md">
-                            <h2>Property Location</h2>
-                            <div class="map">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.792476497554!2d77.594562314821!3d12.972442990869351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16a0f8f5a2b5%3A0x7e2f8a2b2b3b2c5!2sPixel%20Strap!5e0!3m2!1sen!2sin!4v1607411000000!5m2!1sen!2sin"
-                                    width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""
-                                    aria-hidden="false" tabindex="0"></iframe>
+                        @if (isset(json_decode($detail->location)->latitude) && isset(json_decode($detail->location)->longitude))
+                            <div class="column bg-white p-5 rounded-md">
+                                <h2>Property Location</h2>
+                                <div class="h-[400px]" id="map"></div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </section>
                 <aside>
@@ -247,7 +121,7 @@
                         <h3>Recently Added</h3>
                         <div class="grid gap-5 mt-7">
                             @foreach ($recently_products as $item)
-                                <div class="list">
+                                <a class="list" href="{{ route('website-product-detail', $item?->slug) }}">
                                     <div class="image">
                                         <img src="{{ $item->thumbnail_url }}" alt="" />
                                     </div>
@@ -257,7 +131,7 @@
                                             {{ number_format($item?->price, 2) }}
                                         </p>
                                     </div>
-                                </div>
+                                </a>
                             @endforeach
                         </div>
                     </div>
@@ -320,6 +194,9 @@
     <div class="space"></div>
 @stop
 @section('script')
+    <script src="https://maps.googleapis.com/maps/api/js?key={!! config('app.google_map_key') !!}&callback=initMap&libraries=&v=weekly"
+        async></script>
+
     <script type="module">
         var swiperThumbs = new Swiper('.gallery-thumbs', {
             spaceBetween: 10,
@@ -365,6 +242,28 @@
             thumbs: {
                 swiper: swiperThumbs,
             },
+        });
+        
+        var marker;
+        var lat = "{{ json_decode($detail?->location)?->latitude }}";
+        var lon = "{{ json_decode($detail?->location)?->longitude }}";
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: parseFloat(lat),
+                    lng: parseFloat(lon)
+                },
+                zoom: 15,
+                mapTypeId: 'roadmap',
+            });
+
+        marker = new google.maps.Marker({
+            position: {
+                lat: parseFloat(lat),
+                lng: parseFloat(lon)
+            },
+            map: map,
+            draggable: false,
         });
     </script>
 @stop

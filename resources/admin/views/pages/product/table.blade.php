@@ -117,6 +117,12 @@
                                                         <span>@lang('table.option.add_feature')</span>
                                                     </a>
                                                 </li>
+                                                <li>
+                                                    <a class="dropdown-item" @click="openStoreDialogLocation(item)">
+                                                        <i data-feather="map-pin" class="text-violet-600"></i>
+                                                        <span>@lang('Add Location')</span>
+                                                    </a>
+                                                </li>
                                             </div>
                                         </template>
                                         <template x-if="!item.deleted_at && item.status == active">

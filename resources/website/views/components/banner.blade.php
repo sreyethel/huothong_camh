@@ -4,7 +4,7 @@
         <div class="banner-content-wrapper">
             <div class="grip">
                 @isset($content)
-                    <p>{{ $content }}</p>
+                    <p>{!! $content !!}</p>
                 @endisset
                 @isset($title)
                     <h1>{!! $title !!}</h1>

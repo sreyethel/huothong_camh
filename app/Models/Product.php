@@ -19,21 +19,15 @@ class Product extends Model
         'thumbnail',
         'gallery',
         'feature',
+        'location',
         'status',
     ];
-    // protected $casts = [
-    //     'feature' => ' array',
-    // ];
+
     protected $appends = ['thumbnail_url'];
 
     public function getThumbnailUrlAttribute()
     {
         if ($this->thumbnail) return asset('file_manager' . $this->thumbnail);
         return asset('images/logo/no.jpg');
-    }
-
-    public function getFeatures()
-    {
-        return $this->hasOne('App\Models\Feature');
     }
 }

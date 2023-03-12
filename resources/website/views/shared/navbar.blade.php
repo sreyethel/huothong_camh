@@ -25,9 +25,12 @@
                     <div class="px-3">
                         <a href="#"><i class="h-5 w-5" data-feather="search"></i></a>
                     </div>
-                    <div class="px-3">
-                        <a href="{{ route('website-user-order') }}"><i class="h-5 w-5"
-                                data-feather="shopping-cart"></i></a>
+                    <div class="px-3 relative">
+                        <a href="{{ route('website-user-order') }}">
+                            <i class="h-5 w-5" data-feather="shopping-cart"></i>
+                            <span
+                                class="badge badge-primary badge-sm badge-circle absolute top-[-15px] right-0">{{ $totalCart }}</span>
+                        </a>
                     </div>
                     <div class="px-3">
                         <a href="{{ route('website-user-profile') }}"><i class="h-5 w-5" data-feather="user"></i></a>

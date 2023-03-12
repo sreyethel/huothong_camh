@@ -11,14 +11,11 @@ class HomeController extends WebsiteBaseController
     public function onHome()
     {       
         try {
-            $data['expert'] = $this->websiteService->getExpert();
-            $data['banner'] = $this->websiteService->getBanner(config('dummy.banner.expert'));
-            $data['home']   = $this->websiteService->getBanner(config('dummy.banner.home'));
-            $data['partner']   = $this->websiteService->getPartner();
+            $data['home']       = $this->websiteService->getBanner(config('dummy.banner.home'));
+            $data['banner']     = $this->websiteService->getBanner(config('dummy.banner.expert'));
+            $data['expert']     = $this->websiteService->getExpert();
+            $data['partner']    = $this->websiteService->getPartner();
             $data['products']   = $this->websiteService->getProduct(6);
-            
-            
-            // ddd($data['products']);
 
             return view('website::pages.home', $data);
         } catch (\Exception $e) {

@@ -66,10 +66,12 @@
         @include('admin::pages.product.store')
         @include('admin::pages.product.gallery')
         @include('admin::pages.product.feature')
+        @include('admin::pages.product.location')
     </div>
 @stop
 @section('script')
-    <script src="{{ asset('plugin/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={!! config('app.google_map_key') !!}&callback=initMap&libraries=&v=weekly"
+        async></script>
 
     <script type="module">
         Alpine.data('page', () => ({
@@ -133,6 +135,16 @@
             },
             openStoreDialogFeature(data) {
                 this.$store.storeDialogFeature.open({
+                    data: data,
+                    afterClosed: (res) => {
+                        if (res) {
+                            this.table.reload();
+                        }
+                    }
+                });
+            },
+            openStoreDialogLocation(data) {
+                this.$store.storeDialogLocation.open({
                     data: data,
                     afterClosed: (res) => {
                         if (res) {

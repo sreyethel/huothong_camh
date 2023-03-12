@@ -18,16 +18,18 @@ class UserController extends WebsiteBaseController
 
     public function __construct()
     {
+        parent::__construct();
         $this->middleware(function ($request, $next) {
-            $this->user = User::find(auth('web')->user()->id);
+            view()->share([
+                'user' => $this->user,
+            ]);
             return $next($request);
         });
     }
 
     public function onProfile()
     {
-        $data['user'] = $this->user;
-        return view($this->layout . 'profile', $data);
+        return view($this->layout . 'profile');
     }
 
     public function onProfileStore(SignUpRequest $request)
@@ -56,7 +58,6 @@ class UserController extends WebsiteBaseController
 
     public function onOrder()
     {
-        $data['user']   = $this->user;
         $data['carts']  = optional($this->user)->carts()->paginate(10);
 
         return view($this->layout . 'order', $data);
@@ -106,7 +107,6 @@ class UserController extends WebsiteBaseController
 
     public function onFavorite()
     {
-        $data['user'] = $this->user;
         $data['products'] = Favorite::query()
                                 ->whereUserId($this->user->id)
                                 ->whereIsFavorite(config('dummy.status.active.key'))
@@ -117,8 +117,7 @@ class UserController extends WebsiteBaseController
 
     public function onChangePassword()
     {
-        $data['user'] = $this->user;
-        return view($this->layout . 'change-password', $data);
+        return view($this->layout . 'change-password');
     }
 
     public function onChangePasswordStore(ResetPasswordRequest $request)

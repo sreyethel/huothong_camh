@@ -7,14 +7,15 @@
         <div class="sale-section-wrapper container">
             <div class="row">
                 <div class="sale-section-wrapper-title">
-                    <p class="text-lg pb-2 font-light">Do You Want to Live with us?</p>
-                    <h1 class="font-bold text-5xl text-gray-800">Find Better Place <br>To Live</h1>
+                    @isset(toObject($home)->content)
+                        {!! toObject($home)->content !!}
+                    @endisset
                     <div class="grid gap-5 place-items-start place-content-start mt-20">
                         <h1 class="text-xl text-gray-900">What are you looking for?</h1>
                         <div class="grid-icon">
                             <div class="flex items-center">
                                 <div class="box-icon rounded-md mr-5">
-                                    <a href="#">
+                                    <a href="{{ route('website-user-order') }}">
                                         <i class="h-10 w-10 ml-5 text-pink-600" data-feather="bookmark"></i>
                                         <h6 class="mt-3 text-base">Booking</h6>
                                     </a>
@@ -30,7 +31,7 @@
                     </div>
                 </div>
                 <div class="sale-section-wrapper-image">
-                    <img src="{{ asset('images/layout-9.png') }}" alt="homepage">
+                    <img src="{{ $home?->thumbnail_url }}" alt="homepage">
                 </div>
             </div>
         </div>
@@ -38,34 +39,25 @@
     </div>
 
     <!-- about us section -->
-    <div class="about-us-section">
-        <div class="about-us-section-wrapper container">
-            <div class="row">
-                <div class="about-us-section-wrapper-content">
-                    <div class="grid gap-5 mb-10">
-                        <div class="text-base uppercase">@lang('website.navbar.about_us')</div>
-                        <h2 class="text-lg font-bold">Providing Best Properties Since 2023</h2>
-                        <p>
-                            Dignissim justo, quis porta dignissim est sit. Nibh imperdiet aliquam tellus massa blandit
-                            pharetra
-                            arcu. In lectus laoreet tempor sit laoreet amet vel vitae sed. Quis pretium fames vitae aliquet
-                            nec
-                            eu nibh. Sed donec facilisi tempus in libero, tellus turpis metus, et. Lectus urna, justo
-                            molestie
-                            at cursus purus. Molestie commodo aliquet pretium neque ut gravida. Pellentesque consectetur
-                            odio
-                            morbi eget odio tortor porttitor tortor, tellus. Ut placerat ipsum hendrerit.
-                        </p>
-                    </div>
-                    <a class="btn" href="{{ route('website-page-about-us') }}">Learn more</a>
-                </div>
+    @isset(toObject($about->content)->content)
+        <div class="about-us-section">
+            <div class="about-us-section-wrapper container">
+                <div class="row">
+                    <div class="about-us-section-wrapper-content">
+                        <div class="content-detail pb-7">
+                            {!! toObject($about->content)?->content !!}
+                        </div>
 
-                <div class="about-us-section-wrapper-image">
-                    <img src="https://ld-wt73.template-help.com/tf/estancy_v1/images/about-01-500x530.jpg" alt="about us">
+                        <a class="btn" href="{{ route('website-page-about-us') }}">Learn more</a>
+                    </div>
+
+                    <div class="about-us-section-wrapper-image">
+                        <img src="{{ asset('file_manager/' . toObject($about->content)?->thumbnail) }}" alt="about us">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endisset
 
     <!-- product section -->
     @if (isset($products) && count($products) > 0)
@@ -118,7 +110,7 @@
     @endif
 
     <!-- our expert -->
-    @if (isset($products) && count($products) > 0)
+    @if (isset($expert) && count($expert) > 0)
         <div class="block-container py-14" style="background-image: url('{{ $banner->thumbnail_url }}')">
             <div class="block-content container relative">
                 <div class="absolute top-1/2 left-0 transform translate-y-5 color-white z-20">
@@ -156,4 +148,27 @@
 
     <!-- space -->
     <div class="space"></div>
+@stop
+@section('script')
+    <script type="module">
+        const limitText = (text, limit) => {
+            const newText = [];
+            if (text.length > limit) {
+                text.split(' ').reduce((acc, cur) => {
+                    if (acc + cur.length <= limit) {
+                        newText.push(cur);
+                    }
+                    return acc + cur.length;
+                }, 0);
+                return `${newText.join(' ')} ...`;
+            }
+            return text;
+        };
+
+        // limit text content
+        let el = document.querySelectorAll('.content-detail');
+        el.forEach((item) => {
+            item.innerHTML = limitText(item.innerHTML, 500);
+        });
+    </script>
 @stop

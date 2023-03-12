@@ -10,11 +10,16 @@ class PageController extends WebsiteBaseController
 
     public function onAboutUs()
     {
-        return view($this->layout. 'about');
+        $data['banner']         = $this->websiteService->getBanner(config('dummy.banner.about_us'));
+        $data['expert_banner']  = $this->websiteService->getBanner(config('dummy.banner.expert'));
+        $data['expert']         = $this->websiteService->getExpert();
+        
+        return view($this->layout. 'about', $data);
     }
 
     public function onContactUs()
     {
-        return view($this->layout. 'contact');
+        $data['banner'] = $this->websiteService->getBanner(config('dummy.banner.contact_us'));
+        return view($this->layout. 'contact', $data);
     }
 }

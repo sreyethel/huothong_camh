@@ -135,6 +135,31 @@ class ProductController extends Controller
         }
     }
 
+    public function onLocation(Request $req)
+    {
+        try {
+            $location = json_encode([
+                'latitude'  => $req->latitude,
+                'longitude' => $req->longitude,
+            ]);
+
+            $data = Product::find($req->id);
+            $data->update(['location' => $location]);
+
+            return response()->json([
+                'status' => 'success',
+                'error' => false,
+                'message' => __('form.message.success'),
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'error' => true,
+                'message' => __('form.message.error'),
+            ]);
+        }
+    }
+
     public function bulkHideShow(Request $request)
     {
         $ids = $request->Ids;

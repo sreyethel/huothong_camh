@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('thumbnail');
             $table->longText('gallery')->nullable();
             $table->longText('feature')->nullable();
+            $table->longText('location')->nullable();
             $table->tinyInteger('status')->default(config('dummy.status.active.key'));
             $table->timestamps();
             $table->softDeletes();

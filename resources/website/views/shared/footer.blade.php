@@ -4,21 +4,16 @@
             <div class="logo">
                 <img src="{{ asset('images/logo/logo.png') }}" alt="">
                 <p class="pt-5">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl sit amet
-                    tincidunt
-                    luctus, enim ipsum
-                    tincidunt nisl, eu aliquet nisl lorem quis dolor. Sed euismod, nisl sit amet tincidunt
-                    luctus, enim ipsum
-                    tincidunt nisl, eu aliquet nisl lorem quis dolor.
+                    {{ toObject($about?->content)?->short_detail_about_us ?? '' }}
                 </p>
             </div>
             <div class="contact w-1/5">
                 <h1 class="text-xl font-semibold text-white mb-8 ">@lang('website.navbar.contact_us')</h1>
 
                 <div class="grid gap-5">
-                    <div>A-32, Albany, Newyork.</div>
-                    <div>(+066) 518 - 457 - 5181</div>
-                    <div>Contact@gmail.com</div>
+                    <div>{{ toObject($contact?->content)?->address ?? 'No address' }}</div>
+                    <div>{{ toObject($contact?->content)?->phone ?? 'No phone' }}</div>
+                    <div>{{ toObject($contact?->content)?->email ?? 'No e-mail' }}</div>
                 </div>
             </div>
             <div class="link w-2/12">

@@ -123,6 +123,7 @@ Route::middleware(['locale'])->group(function () {
                 Route::post('store', 'onStore')->name('store');
                 Route::post('store/gallery', 'onGallery')->name('gallery');
                 Route::post('store/feature', 'onFeature')->name('feature');
+                Route::post('store/location', 'onLocation')->name('location');
                 Route::delete('bulk-hide-show', 'bulkHideShow')->name('bulk-hide-show');
                 Route::post('save-single-option', 'saveSingleOption')->name('saveSingleOption');
                 Route::delete('delete', 'onDelete')->name('delete');

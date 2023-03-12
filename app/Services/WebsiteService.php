@@ -40,6 +40,16 @@ class WebsiteService
         return $this->service->collectionFirst(Product::query(), $this->active,"slug:$slug");
     }
 
+    public function getProductFeature($slug)
+    {
+        // get feature_ids from product
+        $feature_ids = $this->detailProduct($slug)?->feature;
+
+        return $this->service->collectionGet(Feature::query(), $this->active, "id:desc")
+                ->whereIn('id', json_decode($feature_ids))
+                ->get();
+    }
+
     public function getRecentlyAdded($id)
     {
         return $this->service->collectionGet(Product::query(), $this->active, "id:desc")
@@ -55,6 +65,9 @@ class WebsiteService
         foreach($recent as $key => $item){
             $ids[$key] = $item->id;
         }
+
+        // merge ids and id to array
+        $ids = array_merge($ids, [$id]);
 
         return $this->service->collectionGet(Product::query(), $this->active, "id:desc")
                 ->whereNotIn('id', $ids)

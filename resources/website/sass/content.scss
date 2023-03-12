@@ -596,7 +596,7 @@
                 box-sizing   : border-box;
                 border-radius: 4px;
                 overflow     : hidden;
-                cursor       : zoom-in;
+                cursor       : pointer;
 
                 img {
                     width     : 100%;
@@ -610,6 +610,7 @@
                 box-sizing: border-box;
 
                 h4 {
+                    @include subString(1);
                     font-size  : 1rem;
                     font-weight: 600;
                 }
