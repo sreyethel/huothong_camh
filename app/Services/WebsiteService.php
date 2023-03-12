@@ -49,8 +49,15 @@ class WebsiteService
     }
     public function getRelatedProduct($id)
     {
+        
+        $recent = $this->getRecentlyAdded($id);
+        $ids = [];
+        foreach($recent as $key => $item){
+            $ids[$key] = $item->id;
+        }
+
         return $this->service->collectionGet(Product::query(), $this->active, "id:desc")
-                ->whereNotIn('id', [$id])
+                ->whereNotIn('id', $ids)
                 ->limit(6)
                 ->get();
     }

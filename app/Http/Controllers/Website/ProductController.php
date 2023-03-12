@@ -32,7 +32,7 @@ class ProductController extends WebsiteBaseController
             $data['recently_products']   = $this->websiteService->getRecentlyAdded($data['detail']['id']);
             $data['related_products']   = $this->websiteService->getRelatedProduct($data['detail']['id']);
             
-            // ddd($data['details']['id']);
+            // ddd($data['recently_products']);
 
             return view($this->layout . 'detail', $data);
 
