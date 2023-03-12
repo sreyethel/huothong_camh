@@ -39,7 +39,7 @@
     </div>
 
     <!-- about us section -->
-    @isset(toObject($about->content)->content)
+    @isset($about?->content?->content)
         <div class="about-us-section">
             <div class="about-us-section-wrapper container">
                 <div class="row">
