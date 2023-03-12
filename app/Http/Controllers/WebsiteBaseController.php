@@ -33,6 +33,7 @@ class WebsiteBaseController extends BaseController
             view()->share([
                 'about'         => $this->about,
                 'contact'       => $this->contact,
+                'totalCart'     => $this->totalCart,
             ]);
 
 
