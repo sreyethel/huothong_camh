@@ -175,6 +175,7 @@ Route::middleware(['locale'])->group(function () {
             ->group(function () {
                 Route::get('list', 'index')->name('list');
                 Route::get('data', 'data')->name('data');
+                Route::get('data/banner/page', 'dataPage')->name('data-page');
                 Route::post('store', 'onStore')->name('store');
                 Route::post('status', 'onUpdateStatus')->name('status');
         });

@@ -88,4 +88,13 @@ class BannerController extends Controller
         }
     }
 
+    public function dataPage()
+    {
+        $data = Banner::query()
+                    ->wherePage(request('page'))
+                    ->whereStatus($this->active)
+                    ->first();
+                    
+        return response()->json($data);
+    }
 }

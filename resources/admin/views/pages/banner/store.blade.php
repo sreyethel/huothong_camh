@@ -25,7 +25,7 @@
                     <div class="row-2">
                         <div class="form-row">
                             <label>@lang('form.body.label.page')<span>*</span></label>
-                            <select x-model="form.page" :disabled="dialogData?.id || form.disabled">
+                            <select x-model="form.page" :disabled="form.disabled">
                                 <option value="">@lang('form.body.placeholder.page')</option>
                                 @foreach (config('dummy.banner') as $page)
                                     <option value="{{ $page }}"
@@ -76,8 +76,7 @@
                     <div class="row">
                         <div class="form-row" x-transition:enter.duration.500ms x-transition.scale.origin.top>
                             <label>@lang('form.body.label.content')</label>
-                            <textarea id="mytextarea" rows="24" placeholder="@lang('form.body.placeholder.content')" x-model="form.content"
-                                style="height: 250px"></textarea>
+                            <textarea id="mytextarea" rows="24" placeholder="@lang('form.body.placeholder.content')" x-model="form.content" style="height: 250px"></textarea>
                             <span class="error" x-show="validate?.content" x-text="validate?.content"></span>
                         </div>
                     </div>
@@ -106,13 +105,18 @@
             baseImageUrl: "{{ asset('file_manager') }}",
             validate: null,
             loading: false,
-            pageHome: @json(config('dummy.banner.home')),
 
             async init() {
                 this.dialogData = this.$store.storeDialog.data;
                 if (this.dialogData?.id) {
                     this.form.patchValue(this.dialogData);
                 }
+
+                // page select change
+                let select = document.querySelector('select[x-model="form.page"]');
+                select.addEventListener('change', (e) => {
+                    this.onChangePage(e.target.value);
+                });
 
                 await this.initTinymce();
             },
@@ -125,6 +129,34 @@
                         }
                     }
                 })
+            },
+            onChangePage(page) {
+                this.loading = true;
+                this.form.disable();
+
+                Axios({
+                    url: `{{ route('admin-banner-data-page') }}`,
+                    method: 'get',
+                    params: {
+                        page: page
+                    }
+                }).then((response) => {
+                    this.dialogData = response.data
+                    if (this.dialogData?.id) {
+                        this.form.patchValue(this.dialogData);
+                        tinymce.activeEditor.setContent(this.dialogData?.content ?? '');
+                    } else {
+                        this.form.reset();
+                        tinymce.activeEditor.setContent('');
+                    }
+
+                    this.loading = false;
+                    this.form.enable();
+                }).catch((error) => {
+                    console.log(error);
+                    this.loading = false;
+                    this.form.enable();
+                });
             },
             async initTinymce() {
                 await tinymce.remove();
