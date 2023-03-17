@@ -5,9 +5,16 @@
     top       : 0;
     left      : 0;
     right     : 0;
-    z-index   : 999;
+    z-index   : 998;
     width     : 100%;
 
+    &-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 6rem;
+    }
 
     &.is_sticky {
         animation       : fadeInDown 0.8s ease-in-out;
@@ -47,8 +54,9 @@
             }
         }
     }
-}
-
-.header-fixed {
-    height: 96px;
+    .icons{
+        .menu-bar{
+            display: none;
+        }
+    }
 }

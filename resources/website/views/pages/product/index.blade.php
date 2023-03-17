@@ -25,7 +25,7 @@
     @if (isset($products) && count($products) > 0)
         <div class="sale-section">
             <div class="sale-section-wrapper container">
-                <div class="grid grid-cols-3 gap-6">
+                <div class="sale-section-wrapper-box">
                     @foreach ($products as $item)
                         <div class="bg-white product-box shadow-lg">
                             <div class="product-box-image">

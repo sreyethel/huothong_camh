@@ -21,12 +21,14 @@ Route::name('website-')
             ->name('product-')
             ->group(function () {
                 Route::get('/', 'onIndex')->name('index');
-                Route::get('/{slug}', 'onDetail')->name('detail');
+                Route::get('detail/{slug}', 'onDetail')->name('detail');
                 Route::middleware(['WebGuard'])->group(function () {
                     Route::post('/order/store', 'onOrderStore')->name('order-store');
                     Route::get('/favorite/get', 'onFavorite')->name('favorite');
                     Route::post('/favorite/store', 'onFavoriteStore')->name('favorite-store');
+                    
                 });
+                
         });
 
         // Page

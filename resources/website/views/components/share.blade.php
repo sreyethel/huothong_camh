@@ -15,5 +15,13 @@
                 <i data-feather="twitter"></i>
             </a>
         </div>
+        <!--
+        <div class="share-flex-content-social-item">
+            <a href="https://t.me/share/url?text={{ urlencode(Request::fullUrl()) }}" target="_blank"
+                onclick="window.open(this.href, 'share-facebook','left=50,top=50,width=600,height=320,toolbar=0'); return false;">
+                <i class="fab fa-telegram"></i>
+            </a>
+        </div>
+        -->
     </div>
 </div>

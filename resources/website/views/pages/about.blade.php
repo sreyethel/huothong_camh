@@ -19,7 +19,7 @@
     ])
 
     <!-- about us section -->
-    @if ($about->content)
+    @isset($about?->content?->content)
         <div class="about-us-section">
             <div class="about-us-section-wrapper container">
                 <div class="row column">
@@ -61,7 +61,7 @@
             'style' => 'height: 300px; width: auto;',
         ])
         @endcomponent
-    @endif
+    @endisset
 
     <!-- space -->
     <div class="space"></div>

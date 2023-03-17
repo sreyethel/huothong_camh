@@ -1,6 +1,8 @@
 @extends('website::shared.layout')
 @include('website::components.meta', [
-    'title' => 'Product',
+    'title' => isset($detail?->title) ? $detail?->title : '',
+    'image' => isset($detail?->thumbnail_url) ? $detail?->thumbnail_url : '',
+    'description' =>  isset($detail?->content)? strip_tags($detail?->content): '',
 ])
 @section('content')
     <div class="single-property" x-data="{}">
@@ -10,35 +12,37 @@
             </div>
             <div class="title">
                 <div class="container">
-                    <div class="title-content flex items-center justify-between bg-white shadow-border p-10 rounded-md">
+                    <div class="title-content bg-white shadow-border rounded-md">
                         <div class="left-single">
-                            <h2 class="mb-0">{{ $detail?->title }}</h2>
-                            <div class="grid gap-5 grid-flow-col auto-cols-max pt-6">
-                                <button class="button btn-share shadow-border">
-                                    <i class="far fa-share-square"></i>
-                                    share
-                                </button>
-                                <a class="button shadow-border flex items-center cursor-pointer favorite"
-                                    x-data="favorite" data-id="{{ $detail?->id }}"
-                                    @auth('web')
-                                        @click="onAddFavorite('{{ $detail?->id }}')"
-                                    @else
-                                        href="{{ route('website-auth-sign-in') }}"
-                                    @endauth>
-                                    <i x-show="adding == false" class="h-5 w-5 mr-2 false" data-feather="heart"></i>
-                                    <i x-show="adding == false" class=" fas fa-heart true"></i>
-                                    <i x-show="adding == true" class=" fas fa-spinner fa-spin"></i>
-                                    Save
-                                </a>
-                                <a class="button shadow-border flex items-center cursor-pointer"
-                                    @auth('web')
-                                        @click="$store.orderDialog.open()"
-                                    @else
-                                        href="{{ route('website-auth-sign-in') }}"
-                                    @endauth>
-                                    <i class="h-5 w-5 mr-3" data-feather="shopping-cart"></i>
-                                    Pre-order now
-                                </a>
+                            <div class="btns">
+                                <h2 class="mb-0">{{ $detail?->title }}</h2>
+                                <div class="pt-6 btn-flex">
+                                    <button class="button btn-share shadow-border flex items-center" onclick="OpenModal()">
+                                        <i class="far fa-share-square"></i>
+                                        <span>Share</span>
+                                    </button>
+                                    <a class="button shadow-border flex items-center cursor-pointer favorite"
+                                        x-data="favorite" data-id="{{ $detail?->id }}"
+                                        @auth('web')
+                                            @click="onAddFavorite('{{ $detail?->id }}')"
+                                        @else
+                                            href="{{ route('website-auth-sign-in') }}"
+                                        @endauth>
+                                        <i x-show="adding == false" class="h-5 w-5 mr-2 false" data-feather="heart"></i>
+                                        <i x-show="adding == false" class=" fas fa-heart true"></i>
+                                        <i x-show="adding == true" class=" fas fa-spinner fa-spin"></i>
+                                        <span>Save</span>
+                                    </a>
+                                    <a class="button shadow-border flex items-center cursor-pointer"
+                                        @auth('web')
+                                            @click="$store.orderDialog.open()"
+                                        @else
+                                            href="{{ route('website-auth-sign-in') }}"
+                                        @endauth>
+                                        <i class="h-5 w-5 mr-3" data-feather="shopping-cart"></i>
+                                        <span>Pre-order now</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="right-single w-auto">
@@ -57,7 +61,7 @@
         <div class="container">
             <div class="section-aside">
                 <section>
-                    @if (count(json_decode($detail->gallery)) > 0)
+                    @if ($detail->gallery)
                         <div class="swiper swiper-top">
                             <div class="swiper-wrapper">
                                 @foreach (json_decode($detail->gallery) as $item)
@@ -92,13 +96,13 @@
                         <div class="column bg-white p-5 rounded-md">
                             <h2>Property Details</h2>
                             <p>
-                                {!! strip_tags($detail?->content) !!}
+                                {!! $detail?->content !!}
                             </p>
                         </div>
                         @if (isset($features) && count($features) > 0)
                             <div class="column bg-white p-5 rounded-md">
                                 <h2>Property Features</h2>
-                                <div class="grid grid-cols-3 gap-5">
+                                <div class="grid-feature">
                                     @foreach ($features as $item)
                                         <div class="item flex items-center">
                                             <i data-feather="check-circle" class="text-primary h-5 w-5 mr-3"></i>
@@ -119,7 +123,7 @@
                 <aside>
                     <div class="property-list">
                         <h3>Recently Added</h3>
-                        <div class="grid gap-5 mt-7">
+                        <div class="grid gap-5 mt-7 recently-card">
                             @foreach ($recently_products as $item)
                                 <a class="list" href="{{ route('website-product-detail', $item?->slug) }}">
                                     <div class="image">
@@ -151,7 +155,7 @@
                         <i data-feather="arrow-right"></i>
                     </a>
                 </div>
-                <div class="grid grid-cols-3 gap-6 mt-10">
+                <div class="sale-section-wrapper-box mt-10">
                     @foreach ($related_products as $item)
                         <div class="bg-white product-box shadow-lg">
                             <div class="product-box-image">
@@ -265,5 +269,30 @@
             map: map,
             draggable: false,
         });
+    </script>
+
+    <script>
+        function OpenModal(){
+            $('body').on("click",".btn-share",function(){
+                $('.share-dialog-content').css({'display':'block'});
+                
+                $(".share-dialog-overlay").css({'display':'block'});
+
+                $('body').css({'overflow-y':'hidden'});
+            });
+        }
+
+        function closeModal(){
+            $('body').on("click",".close",function(){
+                $('.share-dialog-content').css({'display':'none'});
+
+                $(".share-dialog-overlay").css({'display':'none'});
+
+                $('body').css({'overflow-y':'scroll'});
+            });
+            
+        }
+
+        
     </script>
 @stop

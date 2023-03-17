@@ -1,6 +1,6 @@
 <div class="footer bg-black">
     <div class="container">
-        <div class="flex justify-between py-10">
+        <div class="footer-wrapper py-10">
             <div class="logo">
                 <img src="{{ asset('images/logo/logo.png') }}" alt="">
                 <p class="pt-5">
@@ -38,7 +38,7 @@
 </div>
 <div class="footer-bottom">
     <div class="container">
-        <div class="h-12 flex justify-between items-center">
+        <div class="h-12 footer-bottom-wrapper">
             <div class="grid gap-4 grid-cols-4">
                 <i class="h-5 w-5" data-feather="facebook"></i>
                 <i class="h-5 w-5" data-feather="twitter"></i>

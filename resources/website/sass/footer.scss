@@ -1,6 +1,10 @@
 .footer {
     color: #b3b8bc;
-
+    &-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
     .logo {
         width: 50%;
 
@@ -12,4 +16,10 @@
 
 .footer-bottom {
     background-color: #1e1e1e;
+    &-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
 }

@@ -30,9 +30,9 @@ class WebsiteService
     {
         return $this->service->collectionGet(Product::query(), $this->active, "id:desc")
                 ->when(request()->has('search'), function ($query) {
-                    $query->where('name', 'like', '%' . request('search') . '%');
+                    $query->where('title', 'like', '%' . request('search') . '%');
                 })
-                ->paginate($perPage ?? 15);
+                ->paginate($perPage ?? 10);
     }
 
     public function detailProduct($slug)
@@ -44,10 +44,11 @@ class WebsiteService
     {
         // get feature_ids from product
         $feature_ids = $this->detailProduct($slug)?->feature;
-
-        return $this->service->collectionGet(Feature::query(), $this->active, "id:desc")
-                ->whereIn('id', json_decode($feature_ids))
-                ->get();
+        if($feature_ids){
+            return $this->service->collectionGet(Feature::query(), $this->active, "id:desc")
+                    ->whereIn('id', json_decode($feature_ids))
+                    ->get();
+        }
     }
 
     public function getRecentlyAdded($id)
@@ -59,7 +60,7 @@ class WebsiteService
     }
     public function getRelatedProduct($id)
     {
-        
+        // get recently product_id from product
         $recent = $this->getRecentlyAdded($id);
         $ids = [];
         foreach($recent as $key => $item){
@@ -166,10 +167,4 @@ class WebsiteService
         return $this->service->collectionGet(Partner::query(), $this->active, "id:desc")
                 ->get();
     }
-    
-    // public function getFeature()
-    // {
-    //     return $this->service->collectionGet(Feature::query(), $this->active, "id:desc")
-    //             ->get();
-    // }
 }

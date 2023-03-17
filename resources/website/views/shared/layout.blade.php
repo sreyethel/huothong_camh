@@ -1,9 +1,19 @@
 @extends('website::index')
 @section('index')
 
+    <!-- mobile nav -->
+    <section>
+        @include('website::components.mobile-nav')
+    </section>
+
     <!-- navbar -->
     <section>
         @include('website::shared.navbar')
+    </section>
+
+    <!-- share social -->
+    <section>
+        @include('website::components.share-dialog')
     </section>
 
     <!-- content -->

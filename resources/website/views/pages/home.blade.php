@@ -10,19 +10,19 @@
                     @isset(toObject($home)->content)
                         {!! toObject($home)->content !!}
                     @endisset
-                    <div class="grid gap-5 place-items-start place-content-start mt-20">
+                    <div class="grid gap-5 place-items-start place-content-start group-item">
                         <h1 class="text-xl text-gray-900">What are you looking for?</h1>
                         <div class="grid-icon">
                             <div class="flex items-center">
                                 <div class="box-icon rounded-md mr-5">
                                     <a href="{{ route('website-user-order') }}">
-                                        <i class="h-10 w-10 ml-5 text-pink-600" data-feather="bookmark"></i>
+                                        <i class="h-10 w-10 ml-5 text-pink-600 icon" data-feather="bookmark"></i>
                                         <h6 class="mt-3 text-base">Booking</h6>
                                     </a>
                                 </div>
                                 <div class="box-icon rounded-md">
                                     <a href="{{ route('website-product-index') }}">
-                                        <i class="h-10 w-10 ml-5 text-pink-600" data-feather="box"></i>
+                                        <i class="h-10 w-10 ml-5 text-pink-600 icon" data-feather="box"></i>
                                         <h6 class="mt-3 text-base">Product</h6>
                                     </a>
                                 </div>
@@ -72,7 +72,7 @@
                         <i data-feather="arrow-right"></i>
                     </a>
                 </div>
-                <div class="grid grid-cols-3 gap-6 mt-10">
+                <div class="sale-section-wrapper-box mt-10">
                     @foreach ($products as $item)
                         <div class="bg-white product-box shadow-lg">
                             <div class="product-box-image">
@@ -88,7 +88,7 @@
                                     <i x-show="adding == true" class="fas fa-spinner fa-spin"></i>
                                 </a>
                             </div>
-                            <div class="product-box-content p-8">
+                            <div class="product-box-content ">
                                 <h1 class="text-xl font-semibold ">{{ $item?->title }}</h1>
                                 <h2 class="text-lg font-semibold mt-2 mb-2">${{ number_format($item?->price, 2) }}</h2>
                                 <p class="text-base">
@@ -114,7 +114,9 @@
         <div class="block-container py-14" style="background-image: url('{{ $banner->thumbnail_url }}')">
             <div class="block-content container relative">
                 <div class="absolute top-1/2 left-0 transform translate-y-5 color-white z-20">
-                    <div class="text-3xl font-bold pb-5 uppercase">Our Expert</div>
+                    <div class="text-3xl font-bold pb-5 uppercase">
+                        <h2>Our Expert</h2>
+                    </div>
                     <div class="grid gap-5">
                         @foreach ($expert as $item)
                             <div class="flex items-center">
@@ -122,7 +124,7 @@
                                     <img class="w-full h-full object-contain rounded-full" src="{{ $item->thumbnail_url }}"
                                         alt="">
                                 </div>
-                                <div class="text-lg text-left pl-5 w-3/5">
+                                <div class="expert-text text-left pl-5 w-3/5">
                                     {{ $item->title }}
                                 </div>
                             </div>
@@ -136,9 +138,9 @@
     <!-- partner section -->
     @if (count($partner) > 0)
         <div class="partner-content">
-            <div class="container">
+            <div class="container partner-section">
                 @foreach ($partner as $item)
-                    <div class="inline-flex m-5 w-28 h-28">
+                    <div class="inline-flex m-5 w-28 h-28 partner-item">
                         <img class="object-contain" src="{{ $item->logo_url }}" alt="">
                     </div>
                 @endforeach

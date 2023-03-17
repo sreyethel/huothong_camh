@@ -1,7 +1,7 @@
 @section('meta')
     <meta property="og:title" content="{{ isset($title) ? $title : '' }}" />
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="website" />
     <meta property="og:image" content="{{ isset($image) ? $image : asset('images/logo/meta.jpg') }}" />
     <meta property="og:image:alt" content="@lang('website.title')">
     <meta property="og:image:width" content="640" />

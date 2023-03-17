@@ -72,6 +72,7 @@
 @section('script')
     <script src="https://maps.googleapis.com/maps/api/js?key={!! config('app.google_map_key') !!}&callback=initMap&libraries=&v=weekly"
         async></script>
+    <script src="{{ asset('plugin/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
 
     <script type="module">
         Alpine.data('page', () => ({

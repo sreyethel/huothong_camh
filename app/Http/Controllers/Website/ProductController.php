@@ -16,7 +16,7 @@ class ProductController extends WebsiteBaseController
         try {
             $data['banner']     = $this->websiteService->getBanner(config('dummy.banner.product'));
             $data['products']   = $this->websiteService->getProduct();
-                        
+
             return view($this->layout . 'index', $data);
 
         } catch (\Exception $e) {
@@ -32,6 +32,8 @@ class ProductController extends WebsiteBaseController
             $data['products']               = $this->websiteService->getProduct(6);
             $data['recently_products']      = $this->websiteService->getRecentlyAdded($data['detail']['id']);
             $data['related_products']       = $this->websiteService->getRelatedProduct($data['detail']['id']);
+            
+            // ddd($data['features']);
 
             return view($this->layout . 'detail', $data);
 
